@@ -32,6 +32,13 @@
 		404F4A861B28FFEA0072783C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 404F4A7C1B28FFEA0072783C /* Security.framework */; };
 		404F4A871B28FFEA0072783C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 404F4A7D1B28FFEA0072783C /* SystemConfiguration.framework */; };
 		404F4A881B28FFEA0072783C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 404F4A7E1B28FFEA0072783C /* UIKit.framework */; };
+		409C8EB91B2BBCD4009DFE2F /* ade.js in Resources */ = {isa = PBXBuildFile; fileRef = 409C8EAE1B2BBCD4009DFE2F /* ade.js */; };
+		409C8EBA1B2BBCD4009DFE2F /* imageOne.png in Resources */ = {isa = PBXBuildFile; fileRef = 409C8EAF1B2BBCD4009DFE2F /* imageOne.png */; };
+		409C8EBB1B2BBCD4009DFE2F /* magazine.wtc in Resources */ = {isa = PBXBuildFile; fileRef = 409C8EB01B2BBCD4009DFE2F /* magazine.wtc */; };
+		409C8EBC1B2BBCD4009DFE2F /* surfer.png in Resources */ = {isa = PBXBuildFile; fileRef = 409C8EB11B2BBCD4009DFE2F /* surfer.png */; };
+		409C8EBD1B2BBCD4009DFE2F /* default.css in Resources */ = {isa = PBXBuildFile; fileRef = 409C8EB31B2BBCD4009DFE2F /* default.css */; };
+		409C8EBE1B2BBCD4009DFE2F /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 409C8EB51B2BBCD4009DFE2F /* index.html */; };
+		409C8EBF1B2BBCD4009DFE2F /* imageontarget.js in Resources */ = {isa = PBXBuildFile; fileRef = 409C8EB61B2BBCD4009DFE2F /* imageontarget.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +82,13 @@
 		404F4A7D1B28FFEA0072783C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		404F4A7E1B28FFEA0072783C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		404F4A8A1B2900FF0072783C /* BridgingHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
+		409C8EAE1B2BBCD4009DFE2F /* ade.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = ade.js; sourceTree = "<group>"; };
+		409C8EAF1B2BBCD4009DFE2F /* imageOne.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imageOne.png; sourceTree = "<group>"; };
+		409C8EB01B2BBCD4009DFE2F /* magazine.wtc */ = {isa = PBXFileReference; lastKnownFileType = file; path = magazine.wtc; sourceTree = "<group>"; };
+		409C8EB11B2BBCD4009DFE2F /* surfer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = surfer.png; sourceTree = "<group>"; };
+		409C8EB31B2BBCD4009DFE2F /* default.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = default.css; sourceTree = "<group>"; };
+		409C8EB51B2BBCD4009DFE2F /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		409C8EB61B2BBCD4009DFE2F /* imageontarget.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = imageontarget.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +150,7 @@
 		404F4A3F1B28FE4E0072783C /* KuduTour */ = {
 			isa = PBXGroup;
 			children = (
+				409C8EB81B2BBCD4009DFE2F /* ArchitectWorld */,
 				404F4A421B28FE4E0072783C /* AppDelegate.swift */,
 				404F4A441B28FE4E0072783C /* ViewController.swift */,
 				404F4A461B28FE4E0072783C /* Main.storyboard */,
@@ -198,6 +213,44 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		409C8EB21B2BBCD4009DFE2F /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				409C8EAF1B2BBCD4009DFE2F /* imageOne.png */,
+				409C8EB01B2BBCD4009DFE2F /* magazine.wtc */,
+				409C8EB11B2BBCD4009DFE2F /* surfer.png */,
+			);
+			path = assets;
+			sourceTree = "<group>";
+		};
+		409C8EB41B2BBCD4009DFE2F /* css */ = {
+			isa = PBXGroup;
+			children = (
+				409C8EB31B2BBCD4009DFE2F /* default.css */,
+			);
+			path = css;
+			sourceTree = "<group>";
+		};
+		409C8EB71B2BBCD4009DFE2F /* js */ = {
+			isa = PBXGroup;
+			children = (
+				409C8EB61B2BBCD4009DFE2F /* imageontarget.js */,
+			);
+			path = js;
+			sourceTree = "<group>";
+		};
+		409C8EB81B2BBCD4009DFE2F /* ArchitectWorld */ = {
+			isa = PBXGroup;
+			children = (
+				409C8EAE1B2BBCD4009DFE2F /* ade.js */,
+				409C8EB21B2BBCD4009DFE2F /* assets */,
+				409C8EB41B2BBCD4009DFE2F /* css */,
+				409C8EB51B2BBCD4009DFE2F /* index.html */,
+				409C8EB71B2BBCD4009DFE2F /* js */,
+			);
+			path = ArchitectWorld;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -247,6 +300,7 @@
 				TargetAttributes = {
 					404F4A3C1B28FE4E0072783C = {
 						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = H57R34WPZ6;
 					};
 					404F4A511B28FE4E0072783C = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -280,7 +334,14 @@
 			files = (
 				404F4A481B28FE4E0072783C /* Main.storyboard in Resources */,
 				404F4A4D1B28FE4E0072783C /* LaunchScreen.xib in Resources */,
+				409C8EBF1B2BBCD4009DFE2F /* imageontarget.js in Resources */,
+				409C8EBB1B2BBCD4009DFE2F /* magazine.wtc in Resources */,
+				409C8EBE1B2BBCD4009DFE2F /* index.html in Resources */,
+				409C8EBA1B2BBCD4009DFE2F /* imageOne.png in Resources */,
 				404F4A4A1B28FE4E0072783C /* Images.xcassets in Resources */,
+				409C8EBC1B2BBCD4009DFE2F /* surfer.png in Resources */,
+				409C8EB91B2BBCD4009DFE2F /* ade.js in Resources */,
+				409C8EBD1B2BBCD4009DFE2F /* default.css in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,6 +489,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
@@ -436,6 +499,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = KuduTour/BridgingHeader.h;
 			};
 			name = Debug;
@@ -444,6 +508,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
@@ -452,6 +518,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = KuduTour/BridgingHeader.h;
 			};
 			name = Release;
