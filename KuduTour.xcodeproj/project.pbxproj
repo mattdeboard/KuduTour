@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		401B3E6A1B32208F00A4B11F /* WikitudeSDKLicenseKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401B3E691B32208F00A4B11F /* WikitudeSDKLicenseKey.swift */; };
 		404F4A431B28FE4E0072783C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404F4A421B28FE4E0072783C /* AppDelegate.swift */; };
 		404F4A451B28FE4E0072783C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404F4A441B28FE4E0072783C /* ViewController.swift */; };
 		404F4A481B28FE4E0072783C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 404F4A461B28FE4E0072783C /* Main.storyboard */; };
@@ -52,6 +53,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		401B3E691B32208F00A4B11F /* WikitudeSDKLicenseKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WikitudeSDKLicenseKey.swift; sourceTree = "<group>"; };
 		404F4A3D1B28FE4E0072783C /* KuduTour.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KuduTour.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		404F4A411B28FE4E0072783C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		404F4A421B28FE4E0072783C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				404F4A4B1B28FE4E0072783C /* LaunchScreen.xib */,
 				404F4A401B28FE4E0072783C /* Supporting Files */,
 				404F4A8A1B2900FF0072783C /* BridgingHeader.h */,
+				401B3E691B32208F00A4B11F /* WikitudeSDKLicenseKey.swift */,
 			);
 			path = KuduTour;
 			sourceTree = "<group>";
@@ -360,6 +363,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				404F4A451B28FE4E0072783C /* ViewController.swift in Sources */,
+				401B3E6A1B32208F00A4B11F /* WikitudeSDKLicenseKey.swift in Sources */,
 				404F4A431B28FE4E0072783C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

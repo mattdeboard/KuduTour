@@ -10,9 +10,6 @@ import AVFoundation
 import UIKit
 import CoreMotion
 
-
-let LICENSE_KEY = "txf3/M8836mURJELv+UTWUMezy3KwcdMl6hm5UOqVKn8BdlPWm5GZ5pujnQuEkHFE5icA63D6vt03XuHCCAO0wL3MrUgcn9+d1iLPbP3IWJjRCywS8RczZcBSSZ90gNKTOJ2UrZIAn4vLEH2ZldwnYVqJf9u0FKdLgfi2w+kQDFTYWx0ZWRfX6NdXu+DPz0ePH8YN1TpLGmYyUhVXbc7kAIbD1utIdhocgR+HBbe21KJvpxKtdpIO6Y5ZQJ2xuK7eoAeYSJr/4zvrYf2/dFBvBoWzJ8OUhvu25P3pqj2PavJabMd5EIN+a3nQ8ooDyH1FfMEnSBMhQloPGk0fmEJzcvT8iEdH1M0Uzw+LbqNFgatZBhY5GzffRifi+5wkYJZsGkzBlNN5mcydNd2lbpbl+3Uv/CJdDUVPsJFZPgt7yXirIaxS98k6mevELfxTnIQKjfzFgjJQ250mKeIJ4plwuEbH/q9ANzaCznIWkft0YrprAWSxSjuST0dVAj1xbMTJHU9QCEtBQEPwXpAH4EvM+RDUFFuT7P/aWChLFG4Do0q1C++bVqE14EZHlyhQtS6V/kOwJmE3XiLlIT1XNM45OwvRCqws7N5Zj7F2HhOjLssb+itPPyDQVL9SW42rrmNXFgfrgAWjwB1yE3/0URJY9p9N/ewcX+zQGwJI6v3mwE="
-
 func dictionaryOfNames(arr:UIView...) -> Dictionary<String,UIView> {
   var d = Dictionary<String,UIView>()
   for (ix,v) in enumerate(arr) {
@@ -38,6 +35,7 @@ class ViewController: UIViewController, WTArchitectViewDelegate, WTArchitectView
     architectView = WTArchitectView(frame: CGRectZero, motionManager: moMgr)
     architectView!.delegate = self
     architectView!.debugDelegate = self
+    // LICENSE_KEY is defined in a separate Swift file.
     architectView!.setLicenseKey(LICENSE_KEY)
 
     let indexURL = NSURL(scheme: "http", host: "9d8062b3.ngrok.io", path: "/")
