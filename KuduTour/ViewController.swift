@@ -18,31 +18,27 @@ func dictionaryOfNames(arr:UIView...) -> Dictionary<String,UIView> {
   return d
 }
 
-class ViewController: UIViewController, WTArchitectViewDelegate, WTArchitectViewDebugDelegate {
+class ViewController: UIViewController, WTArchitectViewDelegate {
 
-  var architectView: WTArchitectView?
+  @IBOutlet var architectView: WTArchitectView?
   var architectWorldNavigation: WTNavigation?
 
   override func viewDidLoad() {
     super.viewDidLoad()
     var error: NSError? = nil
-    if !WTArchitectView.isDeviceSupportedForRequiredFeatures(WTFeatures._Geo | WTFeatures._2DTracking, error: &error)
-    {
+    if !WTArchitectView.isDeviceSupportedForRequiredFeatures(WTFeatures._Geo | WTFeatures._2DTracking, error: &error) {
       NSLog("This device is not supported! '%@'", error!)
       return
     }
-    let moMgr: CMMotionManager? = nil
-    architectView = WTArchitectView(frame: CGRectZero, motionManager: moMgr)
-    architectView!.delegate = self
-    architectView!.debugDelegate = self
+
+    self.architectView?.delegate = self
     // LICENSE_KEY is defined in a separate Swift file.
-    architectView!.setLicenseKey(LICENSE_KEY)
+    self.architectView?.setLicenseKey(LICENSE_KEY)
 
     let indexURL = NSURL(scheme: "http", host: "9d8062b3.ngrok.io", path: "/")
     self.architectWorldNavigation = architectView!.loadArchitectWorldFromURL(indexURL, withRequiredFeatures: WTFeatures._2DTracking)
 
     NSNotificationCenter.defaultCenter().addObserverForName(UIApplicationDidBecomeActiveNotification, object: nil, queue:NSOperationQueue.mainQueue()) { _ in
-      println((self.architectWorldNavigation?.wasInterrupted)!)
       if ((self.architectWorldNavigation?.wasInterrupted)! == true) {
         self.architectView?.reloadArchitectWorld()
       }
@@ -52,22 +48,6 @@ class ViewController: UIViewController, WTArchitectViewDelegate, WTArchitectView
     NSNotificationCenter.defaultCenter().addObserverForName(UIApplicationWillResignActiveNotification, object: nil, queue: NSOperationQueue.mainQueue()) { _ in
       self.stopWikitudeSDKRendering()
     }
-
-    self.view.addSubview(self.architectView!)
-    architectView?.setTranslatesAutoresizingMaskIntoConstraints(false)
-
-    let views = [
-      "architectView": architectView!,
-      "architectWorldNavigation": architectWorldNavigation!
-    ]
-
-    self.view.addConstraints(
-      NSLayoutConstraint.constraintsWithVisualFormat("|[architectView]|", options: nil, metrics: nil, views: views)
-    )
-    self.view.addConstraints(
-      NSLayoutConstraint.constraintsWithVisualFormat("V:|[architectView]|", options: nil, metrics: nil, views: views)
-    )
-
   }
 
   private func startWikitudeSDKRendering() {
@@ -121,11 +101,11 @@ class ViewController: UIViewController, WTArchitectViewDelegate, WTArchitectView
   }
 
   func architectView(architectView: WTArchitectView!, didFinishLoadArchitectWorldNavigation navigation: WTNavigation!) {
-    NSLog("Good Things Happened")
+    NSLog("Finished loading ArchitectWorldNavigation: '%@'", navigation)
   }
 
   func architectView(architectView: WTArchitectView!, didEncounterInternalWarning warning: WTWarning!) {
-    NSLog("Bad Things happened")
+    NSLog("Encountered Warning: '%@'", warning)
   }
 
   func architectView(architectView: WTArchitectView!, didEncounterInternalError error: NSError!) {
