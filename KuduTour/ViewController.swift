@@ -10,14 +10,6 @@ import AVFoundation
 import UIKit
 import CoreMotion
 
-func dictionaryOfNames(arr:UIView...) -> Dictionary<String,UIView> {
-  var d = Dictionary<String,UIView>()
-  for (ix,v) in enumerate(arr) {
-    d["v\(ix+1)"] = v
-  }
-  return d
-}
-
 class ViewController: UIViewController, WTArchitectViewDelegate {
 
   @IBOutlet var architectView: WTArchitectView?
@@ -25,6 +17,7 @@ class ViewController: UIViewController, WTArchitectViewDelegate {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+
     var error: NSError? = nil
     if !WTArchitectView.isDeviceSupportedForRequiredFeatures(WTFeatures._Geo | WTFeatures._2DTracking, error: &error) {
       NSLog("This device is not supported! '%@'", error!)
@@ -50,6 +43,19 @@ class ViewController: UIViewController, WTArchitectViewDelegate {
     }
   }
 
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    self.architectView?.isRunning.boolValue
+    self.startWikitudeSDKRendering()
+  }
+
+  override func viewDidDisappear(animated: Bool) {
+    super.viewDidDisappear(animated)
+    self.stopWikitudeSDKRendering()
+  }
+
+  // MARK: Rendering cycle
+
   private func startWikitudeSDKRendering() {
     if !(self.architectView?.isRunning)! {
       self.architectView?.start(
@@ -63,17 +69,6 @@ class ViewController: UIViewController, WTArchitectViewDelegate {
       self.architectView!.stop()
     }
   }
-
-  override func viewWillAppear(animated: Bool) {
-    super.viewWillAppear(animated)
-    self.startWikitudeSDKRendering()
-  }
-
-  override func viewDidDisappear(animated: Bool) {
-    super.viewDidDisappear(animated)
-    self.stopWikitudeSDKRendering()
-  }
-
 
   // MARK: View rotation
 
@@ -93,6 +88,8 @@ class ViewController: UIViewController, WTArchitectViewDelegate {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
   }
+
+  // MARK: Delegate methods
 
   func architectView(architectView: WTArchitectView!, didFailToLoadArchitectWorldNavigation navigation: WTNavigation!,
     withError error: NSError!) {
