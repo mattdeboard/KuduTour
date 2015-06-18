@@ -51,15 +51,15 @@ class ViewController: UIViewController, WTArchitectViewDelegate {
   }
 
   private func startWikitudeSDKRendering() {
-    if !((self.architectView?.isRunning) != nil) {
+    if !(self.architectView?.isRunning)! {
       self.architectView?.start(
-        { (config: WTStartupConfiguration?) -> Void in return },
+        { (config: WTStartupConfiguration?) in },
         completion: { (completed, err) in return })
     }
   }
 
   private func stopWikitudeSDKRendering() {
-    if ((self.architectView?.isRunning) != nil) {
+    if (self.architectView?.isRunning)! {
       self.architectView!.stop()
     }
   }
