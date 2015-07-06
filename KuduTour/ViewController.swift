@@ -10,10 +10,11 @@ import AVFoundation
 import UIKit
 import CoreMotion
 
-class ViewController: UIViewController, WTArchitectViewDelegate {
+class ViewController: UIViewController, WTArchitectViewDelegate, WTArchitectViewDebugDelegate, CLLocationManagerDelegate {
 
   @IBOutlet var architectView: WTArchitectView?
   var architectWorldNavigation: WTNavigation?
+  var locationManager = CLLocationManager()
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -25,11 +26,15 @@ class ViewController: UIViewController, WTArchitectViewDelegate {
     }
 
     self.architectView?.delegate = self
+    self.architectView?.debugDelegate = self
+
     // LICENSE_KEY is defined in a separate Swift file.
     self.architectView?.setLicenseKey(LICENSE_KEY)
 
-    let indexURL = NSURL(scheme: "http", host: "9d8062b3.ngrok.io", path: "/")
-    self.architectWorldNavigation = architectView!.loadArchitectWorldFromURL(indexURL, withRequiredFeatures: WTFeatures._2DTracking)
+    let indexURL = NSURL(string: "http://fa9e3f08.ngrok.io/")
+    println(WTFeatures._Geo | WTFeatures._2DTracking)
+    self.architectWorldNavigation = architectView!.loadArchitectWorldFromURL(indexURL,
+      withRequiredFeatures: WTFeatures._Geo | WTFeatures._2DTracking)
 
     NSNotificationCenter.defaultCenter().addObserverForName(UIApplicationDidBecomeActiveNotification, object: nil, queue:NSOperationQueue.mainQueue()) { _ in
       if ((self.architectWorldNavigation?.wasInterrupted)! == true) {
@@ -41,6 +46,10 @@ class ViewController: UIViewController, WTArchitectViewDelegate {
     NSNotificationCenter.defaultCenter().addObserverForName(UIApplicationWillResignActiveNotification, object: nil, queue: NSOperationQueue.mainQueue()) { _ in
       self.stopWikitudeSDKRendering()
     }
+
+    locationManager.delegate = self
+    locationManager.requestWhenInUseAuthorization()
+    locationManager.startUpdatingLocation()
   }
 
   override func viewWillAppear(animated: Bool) {
@@ -89,7 +98,19 @@ class ViewController: UIViewController, WTArchitectViewDelegate {
     // Dispose of any resources that can be recreated.
   }
 
-  // MARK: Delegate methods
+  // MARK: CLLocationManagerDelegate methods
+
+  func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
+    println("Error while updating location " + error.localizedDescription)
+  }
+
+  func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+    let lat = manager.location.coordinate.latitude
+    let lon = manager.location.coordinate.longitude
+    let altitude = manager.location.altitude
+    self.architectView?.callJavaScript("this.locationChanged(\(lat), \(lon), \(altitude))")
+  }
+  // MARK: ArchitectView Delegate methods
 
   func architectView(architectView: WTArchitectView!, didFailToLoadArchitectWorldNavigation navigation: WTNavigation!,
     withError error: NSError!) {

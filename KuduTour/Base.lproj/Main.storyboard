@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pid-aS-uEa" customClass="WTArchitectView">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
@@ -27,7 +27,7 @@
                             <constraint firstItem="Pid-aS-uEa" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Evj-ND-jSO"/>
                             <constraint firstAttribute="trailing" secondItem="Pid-aS-uEa" secondAttribute="trailing" id="jCC-xM-e3l"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Pid-aS-uEa" secondAttribute="bottom" id="l1M-JN-sca"/>
-                            <constraint firstItem="Pid-aS-uEa" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="tGT-LZ-Tmd"/>
+                            <constraint firstItem="Pid-aS-uEa" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="20" id="tGT-LZ-Tmd"/>
                         </constraints>
                     </view>
                     <connections>
@@ -36,7 +36,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="444" y="455"/>
+            <point key="canvasLocation" x="443" y="450"/>
         </scene>
     </scenes>
 </document>
