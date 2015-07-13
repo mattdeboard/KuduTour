@@ -24,15 +24,13 @@ class KuduViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 
   // MARK: Subviews
   var avPreviewView: UIView?
-  var uiOverlayView: UIView?
-
-  @IBOutlet weak var containerView: UIView!
+  @IBOutlet weak var someButton: UIButton!
+  @IBOutlet weak var buttonLabel: UILabel!
 
   override func viewDidLoad() {
     super.viewDidLoad()
 
     avPreviewView = self.view.viewWithTag(0)
-    uiOverlayView = self.view.viewWithTag(1)
 
     // Do any additional setup after loading the view, typically from a nib.
     captureSession.sessionPreset = AVCaptureSessionPresetHigh
@@ -104,6 +102,8 @@ class KuduViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 
     previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
     avPreviewView!.layer.addSublayer(previewLayer)
+    avPreviewView!.layer.addSublayer(buttonLabel.layer)
+    avPreviewView!.layer.addSublayer(someButton.layer)
     previewLayer?.frame = avPreviewView!.layer.frame
 
     captureSession.startRunning()
