@@ -27,26 +27,13 @@ class KuduViewController: UIViewController, UIImagePickerControllerDelegate, UIN
   @IBOutlet weak var someButton: UIButton!
   @IBOutlet weak var buttonLabel: UILabel!
 
-  func videoOrientation() {
-    let previewConn = self.previewLayer?.connection
-    let orientation = UIApplication.sharedApplication().statusBarOrientation
-
-    switch orientation {
-    case UIInterfaceOrientation.LandscapeLeft:
-      previewConn!.videoOrientation = AVCaptureVideoOrientation.LandscapeLeft
-    case UIInterfaceOrientation.LandscapeRight:
-      previewConn!.videoOrientation = AVCaptureVideoOrientation.LandscapeRight
-    case UIInterfaceOrientation.Portrait:
-      previewConn!.videoOrientation = AVCaptureVideoOrientation.Portrait
-    case UIInterfaceOrientation.PortraitUpsideDown:
-      previewConn!.videoOrientation = AVCaptureVideoOrientation.PortraitUpsideDown
-    default:
-      previewConn!.videoOrientation = AVCaptureVideoOrientation.LandscapeRight
-    }
-  }
+  // MARK: View Lifecycle
 
   override func viewWillTransitionToSize(size: CGSize,
     withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+      // I do not understand why I have to handle this at all. But since I do, I want to know how to make the transition
+      // between portrait and landscape seamless as it is in the camera app. I bet I'm doing something wrong here that
+      // I'll have to rip out in six months.
       super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
       coordinator.animateAlongsideTransition({ (context) -> Void in
         if (self.previewLayer?.connection.supportsVideoOrientation)! {
@@ -56,6 +43,14 @@ class KuduViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         },
         completion: { (context) -> Void in
       })
+  }
+
+  override func viewWillAppear(animated: Bool) {
+    self.navigationController?.navigationBarHidden = true
+  }
+
+  override func viewWillDisappear(animated: Bool) {
+    self.navigationController?.navigationBarHidden = false
   }
 
   override func viewDidLoad() {
@@ -139,5 +134,25 @@ class KuduViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
     videoOrientation()
     captureSession.startRunning()
+  }
+
+  // MARK: Utility methods
+
+  func videoOrientation() {
+    let previewConn = self.previewLayer?.connection
+    let orientation = UIApplication.sharedApplication().statusBarOrientation
+
+    switch orientation {
+    case UIInterfaceOrientation.LandscapeLeft:
+      previewConn!.videoOrientation = AVCaptureVideoOrientation.LandscapeLeft
+    case UIInterfaceOrientation.LandscapeRight:
+      previewConn!.videoOrientation = AVCaptureVideoOrientation.LandscapeRight
+    case UIInterfaceOrientation.Portrait:
+      previewConn!.videoOrientation = AVCaptureVideoOrientation.Portrait
+    case UIInterfaceOrientation.PortraitUpsideDown:
+      previewConn!.videoOrientation = AVCaptureVideoOrientation.PortraitUpsideDown
+    default:
+      previewConn!.videoOrientation = AVCaptureVideoOrientation.LandscapeRight
+    }
   }
 }
