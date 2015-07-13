@@ -40,6 +40,7 @@
 		409C8EBD1B2BBCD4009DFE2F /* default.css in Resources */ = {isa = PBXBuildFile; fileRef = 409C8EB31B2BBCD4009DFE2F /* default.css */; };
 		409C8EBE1B2BBCD4009DFE2F /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 409C8EB51B2BBCD4009DFE2F /* index.html */; };
 		409C8EBF1B2BBCD4009DFE2F /* imageontarget.js in Resources */ = {isa = PBXBuildFile; fileRef = 409C8EB61B2BBCD4009DFE2F /* imageontarget.js */; };
+		40C63BF21B5045550091FF66 /* KuduViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C63BF11B5045550091FF66 /* KuduViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,7 @@
 		409C8EB31B2BBCD4009DFE2F /* default.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = default.css; sourceTree = "<group>"; };
 		409C8EB51B2BBCD4009DFE2F /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		409C8EB61B2BBCD4009DFE2F /* imageontarget.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = imageontarget.js; sourceTree = "<group>"; };
+		40C63BF11B5045550091FF66 /* KuduViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KuduViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +163,7 @@
 				404F4A401B28FE4E0072783C /* Supporting Files */,
 				404F4A8A1B2900FF0072783C /* BridgingHeader.h */,
 				401B3E691B32208F00A4B11F /* SecretStuff.swift */,
+				40C63BF11B5045550091FF66 /* KuduViewController.swift */,
 			);
 			path = KuduTour;
 			sourceTree = "<group>";
@@ -365,6 +368,7 @@
 				404F4A451B28FE4E0072783C /* ViewController.swift in Sources */,
 				401B3E6A1B32208F00A4B11F /* SecretStuff.swift in Sources */,
 				404F4A431B28FE4E0072783C /* AppDelegate.swift in Sources */,
+				40C63BF21B5045550091FF66 /* KuduViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

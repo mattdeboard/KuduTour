@@ -10,6 +10,10 @@ import AVFoundation
 import UIKit
 import CoreMotion
 
+func logFromJS(msg) {
+  println(msg)
+}
+
 class ViewController: UIViewController, WTArchitectViewDelegate, WTArchitectViewDebugDelegate, CLLocationManagerDelegate {
 
   @IBOutlet var architectView: WTArchitectView?
@@ -31,7 +35,7 @@ class ViewController: UIViewController, WTArchitectViewDelegate, WTArchitectView
     // LICENSE_KEY is defined in a separate Swift file.
     self.architectView?.setLicenseKey(LICENSE_KEY)
 
-    let indexURL = NSURL(string: "http://fa9e3f08.ngrok.io/")
+    let indexURL = NSURL(string: "http://c1ef5ec1.ngrok.io/")
     println(WTFeatures._Geo | WTFeatures._2DTracking)
     self.architectWorldNavigation = architectView!.loadArchitectWorldFromURL(indexURL,
       withRequiredFeatures: WTFeatures._Geo | WTFeatures._2DTracking)
@@ -108,7 +112,7 @@ class ViewController: UIViewController, WTArchitectViewDelegate, WTArchitectView
     let lat = manager.location.coordinate.latitude
     let lon = manager.location.coordinate.longitude
     let altitude = manager.location.altitude
-    self.architectView?.callJavaScript("this.locationChanged(\(lat), \(lon), \(altitude))")
+    self.architectView?.callJavaScript("World.locationChanged(\(lat), \(lon), \(altitude))")
   }
   // MARK: ArchitectView Delegate methods
 
@@ -128,5 +132,9 @@ class ViewController: UIViewController, WTArchitectViewDelegate, WTArchitectView
 
   func architectView(architectView: WTArchitectView!, didEncounterInternalError error: NSError!) {
     NSLog("WTArchitectView encountered an internal error '%@'", error)
+  }
+
+  func architectView(architectView: WTArchitectView!, invokedURL URL: NSURL!) {
+    println(URL)
   }
 }
