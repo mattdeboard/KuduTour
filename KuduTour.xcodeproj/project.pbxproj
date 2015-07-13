@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		401666281B54851600A5F545 /* KTFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401666271B54851600A5F545 /* KTFormViewController.swift */; };
 		401B3E6A1B32208F00A4B11F /* SecretStuff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401B3E691B32208F00A4B11F /* SecretStuff.swift */; };
 		404F4A431B28FE4E0072783C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404F4A421B28FE4E0072783C /* AppDelegate.swift */; };
 		404F4A451B28FE4E0072783C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404F4A441B28FE4E0072783C /* ViewController.swift */; };
@@ -33,13 +34,6 @@
 		404F4A861B28FFEA0072783C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 404F4A7C1B28FFEA0072783C /* Security.framework */; };
 		404F4A871B28FFEA0072783C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 404F4A7D1B28FFEA0072783C /* SystemConfiguration.framework */; };
 		404F4A881B28FFEA0072783C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 404F4A7E1B28FFEA0072783C /* UIKit.framework */; };
-		409C8EB91B2BBCD4009DFE2F /* ade.js in Resources */ = {isa = PBXBuildFile; fileRef = 409C8EAE1B2BBCD4009DFE2F /* ade.js */; };
-		409C8EBA1B2BBCD4009DFE2F /* imageOne.png in Resources */ = {isa = PBXBuildFile; fileRef = 409C8EAF1B2BBCD4009DFE2F /* imageOne.png */; };
-		409C8EBB1B2BBCD4009DFE2F /* magazine.wtc in Resources */ = {isa = PBXBuildFile; fileRef = 409C8EB01B2BBCD4009DFE2F /* magazine.wtc */; };
-		409C8EBC1B2BBCD4009DFE2F /* surfer.png in Resources */ = {isa = PBXBuildFile; fileRef = 409C8EB11B2BBCD4009DFE2F /* surfer.png */; };
-		409C8EBD1B2BBCD4009DFE2F /* default.css in Resources */ = {isa = PBXBuildFile; fileRef = 409C8EB31B2BBCD4009DFE2F /* default.css */; };
-		409C8EBE1B2BBCD4009DFE2F /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 409C8EB51B2BBCD4009DFE2F /* index.html */; };
-		409C8EBF1B2BBCD4009DFE2F /* imageontarget.js in Resources */ = {isa = PBXBuildFile; fileRef = 409C8EB61B2BBCD4009DFE2F /* imageontarget.js */; };
 		40C63BF21B5045550091FF66 /* KuduViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C63BF11B5045550091FF66 /* KuduViewController.swift */; };
 		8B74C67E21F8D1B0144092A6 /* Pods_KuduTour.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1025F0C7762D94A37E67839C /* Pods_KuduTour.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
@@ -56,6 +50,7 @@
 
 /* Begin PBXFileReference section */
 		1025F0C7762D94A37E67839C /* Pods_KuduTour.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KuduTour.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		401666271B54851600A5F545 /* KTFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTFormViewController.swift; sourceTree = "<group>"; };
 		401B3E691B32208F00A4B11F /* SecretStuff.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecretStuff.swift; sourceTree = "<group>"; };
 		404F4A3D1B28FE4E0072783C /* KuduTour.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KuduTour.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		404F4A411B28FE4E0072783C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -87,13 +82,6 @@
 		404F4A7D1B28FFEA0072783C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		404F4A7E1B28FFEA0072783C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		404F4A8A1B2900FF0072783C /* BridgingHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
-		409C8EAE1B2BBCD4009DFE2F /* ade.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = ade.js; sourceTree = "<group>"; };
-		409C8EAF1B2BBCD4009DFE2F /* imageOne.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imageOne.png; sourceTree = "<group>"; };
-		409C8EB01B2BBCD4009DFE2F /* magazine.wtc */ = {isa = PBXFileReference; lastKnownFileType = file; path = magazine.wtc; sourceTree = "<group>"; };
-		409C8EB11B2BBCD4009DFE2F /* surfer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = surfer.png; sourceTree = "<group>"; };
-		409C8EB31B2BBCD4009DFE2F /* default.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = default.css; sourceTree = "<group>"; };
-		409C8EB51B2BBCD4009DFE2F /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
-		409C8EB61B2BBCD4009DFE2F /* imageontarget.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = imageontarget.js; sourceTree = "<group>"; };
 		40C63BF11B5045550091FF66 /* KuduViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KuduViewController.swift; sourceTree = "<group>"; };
 		5A4F6671721DFDC4210CF2A8 /* Pods-KuduTour.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KuduTour.release.xcconfig"; path = "Pods/Target Support Files/Pods-KuduTour/Pods-KuduTour.release.xcconfig"; sourceTree = "<group>"; };
 		A97455721A1F470804CF978D /* Pods-KuduTour.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KuduTour.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KuduTour/Pods-KuduTour.debug.xcconfig"; sourceTree = "<group>"; };
@@ -160,7 +148,6 @@
 		404F4A3F1B28FE4E0072783C /* KuduTour */ = {
 			isa = PBXGroup;
 			children = (
-				409C8EB81B2BBCD4009DFE2F /* ArchitectWorld */,
 				404F4A421B28FE4E0072783C /* AppDelegate.swift */,
 				404F4A441B28FE4E0072783C /* ViewController.swift */,
 				404F4A461B28FE4E0072783C /* Main.storyboard */,
@@ -170,6 +157,7 @@
 				404F4A8A1B2900FF0072783C /* BridgingHeader.h */,
 				401B3E691B32208F00A4B11F /* SecretStuff.swift */,
 				40C63BF11B5045550091FF66 /* KuduViewController.swift */,
+				401666271B54851600A5F545 /* KTFormViewController.swift */,
 			);
 			path = KuduTour;
 			sourceTree = "<group>";
@@ -224,44 +212,6 @@
 				1025F0C7762D94A37E67839C /* Pods_KuduTour.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		409C8EB21B2BBCD4009DFE2F /* assets */ = {
-			isa = PBXGroup;
-			children = (
-				409C8EAF1B2BBCD4009DFE2F /* imageOne.png */,
-				409C8EB01B2BBCD4009DFE2F /* magazine.wtc */,
-				409C8EB11B2BBCD4009DFE2F /* surfer.png */,
-			);
-			path = assets;
-			sourceTree = "<group>";
-		};
-		409C8EB41B2BBCD4009DFE2F /* css */ = {
-			isa = PBXGroup;
-			children = (
-				409C8EB31B2BBCD4009DFE2F /* default.css */,
-			);
-			path = css;
-			sourceTree = "<group>";
-		};
-		409C8EB71B2BBCD4009DFE2F /* js */ = {
-			isa = PBXGroup;
-			children = (
-				409C8EB61B2BBCD4009DFE2F /* imageontarget.js */,
-			);
-			path = js;
-			sourceTree = "<group>";
-		};
-		409C8EB81B2BBCD4009DFE2F /* ArchitectWorld */ = {
-			isa = PBXGroup;
-			children = (
-				409C8EAE1B2BBCD4009DFE2F /* ade.js */,
-				409C8EB21B2BBCD4009DFE2F /* assets */,
-				409C8EB41B2BBCD4009DFE2F /* css */,
-				409C8EB51B2BBCD4009DFE2F /* index.html */,
-				409C8EB71B2BBCD4009DFE2F /* js */,
-			);
-			path = ArchitectWorld;
 			sourceTree = "<group>";
 		};
 		D3F3B839BF1349AD5EEBF2CE /* Pods */ = {
@@ -359,14 +309,7 @@
 			files = (
 				404F4A481B28FE4E0072783C /* Main.storyboard in Resources */,
 				404F4A4D1B28FE4E0072783C /* LaunchScreen.xib in Resources */,
-				409C8EBF1B2BBCD4009DFE2F /* imageontarget.js in Resources */,
-				409C8EBB1B2BBCD4009DFE2F /* magazine.wtc in Resources */,
-				409C8EBE1B2BBCD4009DFE2F /* index.html in Resources */,
-				409C8EBA1B2BBCD4009DFE2F /* imageOne.png in Resources */,
 				404F4A4A1B28FE4E0072783C /* Images.xcassets in Resources */,
-				409C8EBC1B2BBCD4009DFE2F /* surfer.png in Resources */,
-				409C8EB91B2BBCD4009DFE2F /* ade.js in Resources */,
-				409C8EBD1B2BBCD4009DFE2F /* default.css in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,6 +377,7 @@
 			files = (
 				404F4A451B28FE4E0072783C /* ViewController.swift in Sources */,
 				401B3E6A1B32208F00A4B11F /* SecretStuff.swift in Sources */,
+				401666281B54851600A5F545 /* KTFormViewController.swift in Sources */,
 				404F4A431B28FE4E0072783C /* AppDelegate.swift in Sources */,
 				40C63BF21B5045550091FF66 /* KuduViewController.swift in Sources */,
 			);
