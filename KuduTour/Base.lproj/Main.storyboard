@@ -50,12 +50,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eNY-je-ISP">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mark POI" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pbR-sX-3Z2">
-                                <rect key="frame" x="263" y="571" width="72.5" height="20.5"/>
+                                <rect key="frame" x="263" y="571" width="73" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -69,13 +65,9 @@
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="aFL-nb-dLs" secondAttribute="centerX" id="2Ue-E7-rK5"/>
-                            <constraint firstItem="eNY-je-ISP" firstAttribute="top" secondItem="uTj-rT-spr" secondAttribute="topMargin" id="AVq-JL-hzb"/>
                             <constraint firstItem="pbR-sX-3Z2" firstAttribute="top" secondItem="aFL-nb-dLs" secondAttribute="bottom" constant="8" id="BZv-fZ-aaA"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="eNY-je-ISP" secondAttribute="trailing" constant="-16" id="QG6-BB-eXK"/>
                             <constraint firstAttribute="centerX" secondItem="pbR-sX-3Z2" secondAttribute="centerX" id="Qzt-TQ-TjB"/>
-                            <constraint firstItem="eNY-je-ISP" firstAttribute="leading" secondItem="uTj-rT-spr" secondAttribute="leadingMargin" constant="-16" id="Tre-BL-ClH"/>
                             <constraint firstItem="ABD-9f-cK3" firstAttribute="top" secondItem="pbR-sX-3Z2" secondAttribute="bottom" constant="8" id="gpB-Yc-d0A"/>
-                            <constraint firstItem="ABD-9f-cK3" firstAttribute="top" secondItem="eNY-je-ISP" secondAttribute="bottom" id="l5N-B2-HlE"/>
                         </constraints>
                     </view>
                     <connections>
@@ -226,7 +218,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hyc-1O-ktu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1102" y="1142"/>
+            <point key="canvasLocation" x="1135" y="1272"/>
         </scene>
     </scenes>
 </document>

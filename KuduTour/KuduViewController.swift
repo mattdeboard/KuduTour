@@ -27,6 +27,37 @@ class KuduViewController: UIViewController, UIImagePickerControllerDelegate, UIN
   @IBOutlet weak var someButton: UIButton!
   @IBOutlet weak var buttonLabel: UILabel!
 
+  func videoOrientation() {
+    let previewConn = self.previewLayer?.connection
+    let orientation = UIApplication.sharedApplication().statusBarOrientation
+
+    switch orientation {
+    case UIInterfaceOrientation.LandscapeLeft:
+      previewConn!.videoOrientation = AVCaptureVideoOrientation.LandscapeLeft
+    case UIInterfaceOrientation.LandscapeRight:
+      previewConn!.videoOrientation = AVCaptureVideoOrientation.LandscapeRight
+    case UIInterfaceOrientation.Portrait:
+      previewConn!.videoOrientation = AVCaptureVideoOrientation.Portrait
+    case UIInterfaceOrientation.PortraitUpsideDown:
+      previewConn!.videoOrientation = AVCaptureVideoOrientation.PortraitUpsideDown
+    default:
+      previewConn!.videoOrientation = AVCaptureVideoOrientation.LandscapeRight
+    }
+  }
+
+  override func viewWillTransitionToSize(size: CGSize,
+    withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+      super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
+      coordinator.animateAlongsideTransition({ (context) -> Void in
+        if (self.previewLayer?.connection.supportsVideoOrientation)! {
+          self.previewLayer?.frame = CGRectMake(0, 0, size.width, size.height)
+          self.videoOrientation()
+        }
+        },
+        completion: { (context) -> Void in
+      })
+  }
+
   override func viewDidLoad() {
     super.viewDidLoad()
 
@@ -101,11 +132,12 @@ class KuduViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     }
 
     previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-    avPreviewView!.layer.addSublayer(previewLayer)
-    avPreviewView!.layer.addSublayer(buttonLabel.layer)
-    avPreviewView!.layer.addSublayer(someButton.layer)
-    previewLayer?.frame = avPreviewView!.layer.frame
-
+    self.view.layer.addSublayer(previewLayer)
+    self.view.layer.addSublayer(buttonLabel.layer)
+    self.view.layer.addSublayer(someButton.layer)
+    previewLayer?.frame = self.view.bounds
+    previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
+    videoOrientation()
     captureSession.startRunning()
   }
 }
