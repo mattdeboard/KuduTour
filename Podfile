@@ -7,6 +7,7 @@ target 'KuduTour' do
   use_frameworks!
 
   pod 'SwiftForms'
+  pod 'AFNetworking', "~> 2.0"
 end
 
 target 'KuduTourTests' do
