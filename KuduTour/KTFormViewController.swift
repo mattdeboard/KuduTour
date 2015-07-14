@@ -8,7 +8,6 @@
 import AFNetworking
 import CoreLocation
 import SwiftForms
-import SwiftyJSON
 import UIKit
 
 class KTFormViewController: FormViewController, CLLocationManagerDelegate {
