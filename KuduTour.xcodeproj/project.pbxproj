@@ -10,6 +10,16 @@
 		20F71E317F645F8F61DB88D2 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C792C3AC5445E7494392A34C /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		401666281B54851600A5F545 /* KTFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401666271B54851600A5F545 /* KTFormViewController.swift */; };
 		401B3E6A1B32208F00A4B11F /* SecretStuff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401B3E691B32208F00A4B11F /* SecretStuff.swift */; };
+		4044F3621B55A89C00937900 /* ARCoordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4044F3571B55A89C00937900 /* ARCoordinate.m */; };
+		4044F3631B55A89C00937900 /* ARGeoCoordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4044F3591B55A89C00937900 /* ARGeoCoordinate.m */; };
+		4044F3641B55A89C00937900 /* ARKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 4044F35B1B55A89C00937900 /* ARKit.m */; };
+		4044F3651B55A89C00937900 /* AugmentedRealityController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4044F35F1B55A89C00937900 /* AugmentedRealityController.m */; };
+		4044F3661B55A89C00937900 /* GEOLocations.m in Sources */ = {isa = PBXBuildFile; fileRef = 4044F3611B55A89C00937900 /* GEOLocations.m */; };
+		4044F3681B55AA2C00937900 /* ARKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4044F3671B55AA2C00937900 /* ARKit.swift */; };
+		4044F36A1B55ABE200937900 /* ARGeoCoordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4044F3691B55ABE200937900 /* ARGeoCoordinate.swift */; };
+		4044F36C1B55ABF900937900 /* ARCoordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4044F36B1B55ABF900937900 /* ARCoordinate.swift */; };
+		4044F36E1B55B94300937900 /* ARManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4044F36D1B55B94300937900 /* ARManager.swift */; };
+		4044F3701B55BC7800937900 /* ARViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4044F36F1B55BC7800937900 /* ARViewProtocol.swift */; };
 		404F4A431B28FE4E0072783C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404F4A421B28FE4E0072783C /* AppDelegate.swift */; };
 		404F4A481B28FE4E0072783C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 404F4A461B28FE4E0072783C /* Main.storyboard */; };
 		404F4A4A1B28FE4E0072783C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 404F4A491B28FE4E0072783C /* Images.xcassets */; };
@@ -55,6 +65,23 @@
 		1025F0C7762D94A37E67839C /* Pods_KuduTour.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KuduTour.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		401666271B54851600A5F545 /* KTFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTFormViewController.swift; sourceTree = "<group>"; };
 		401B3E691B32208F00A4B11F /* SecretStuff.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecretStuff.swift; sourceTree = "<group>"; };
+		4044F3561B55A89C00937900 /* ARCoordinate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARCoordinate.h; sourceTree = "<group>"; };
+		4044F3571B55A89C00937900 /* ARCoordinate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARCoordinate.m; sourceTree = "<group>"; };
+		4044F3581B55A89C00937900 /* ARGeoCoordinate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARGeoCoordinate.h; sourceTree = "<group>"; };
+		4044F3591B55A89C00937900 /* ARGeoCoordinate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARGeoCoordinate.m; sourceTree = "<group>"; };
+		4044F35A1B55A89C00937900 /* ARKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARKit.h; sourceTree = "<group>"; };
+		4044F35B1B55A89C00937900 /* ARKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARKit.m; sourceTree = "<group>"; };
+		4044F35C1B55A89C00937900 /* ARLocationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARLocationDelegate.h; sourceTree = "<group>"; };
+		4044F35D1B55A89C00937900 /* ARViewProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARViewProtocol.h; sourceTree = "<group>"; };
+		4044F35E1B55A89C00937900 /* AugmentedRealityController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AugmentedRealityController.h; sourceTree = "<group>"; };
+		4044F35F1B55A89C00937900 /* AugmentedRealityController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AugmentedRealityController.m; sourceTree = "<group>"; };
+		4044F3601B55A89C00937900 /* GEOLocations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GEOLocations.h; sourceTree = "<group>"; };
+		4044F3611B55A89C00937900 /* GEOLocations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GEOLocations.m; sourceTree = "<group>"; };
+		4044F3671B55AA2C00937900 /* ARKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARKit.swift; sourceTree = "<group>"; };
+		4044F3691B55ABE200937900 /* ARGeoCoordinate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARGeoCoordinate.swift; sourceTree = "<group>"; };
+		4044F36B1B55ABF900937900 /* ARCoordinate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARCoordinate.swift; sourceTree = "<group>"; };
+		4044F36D1B55B94300937900 /* ARManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARManager.swift; sourceTree = "<group>"; };
+		4044F36F1B55BC7800937900 /* ARViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARViewProtocol.swift; sourceTree = "<group>"; };
 		404F4A3D1B28FE4E0072783C /* KuduTour.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KuduTour.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		404F4A411B28FE4E0072783C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		404F4A421B28FE4E0072783C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -144,6 +171,30 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
+		4044F3551B55A89C00937900 /* ARKit */ = {
+			isa = PBXGroup;
+			children = (
+				4044F3561B55A89C00937900 /* ARCoordinate.h */,
+				4044F3571B55A89C00937900 /* ARCoordinate.m */,
+				4044F3581B55A89C00937900 /* ARGeoCoordinate.h */,
+				4044F3591B55A89C00937900 /* ARGeoCoordinate.m */,
+				4044F35A1B55A89C00937900 /* ARKit.h */,
+				4044F35B1B55A89C00937900 /* ARKit.m */,
+				4044F35C1B55A89C00937900 /* ARLocationDelegate.h */,
+				4044F35D1B55A89C00937900 /* ARViewProtocol.h */,
+				4044F35E1B55A89C00937900 /* AugmentedRealityController.h */,
+				4044F35F1B55A89C00937900 /* AugmentedRealityController.m */,
+				4044F3601B55A89C00937900 /* GEOLocations.h */,
+				4044F3611B55A89C00937900 /* GEOLocations.m */,
+				4044F3671B55AA2C00937900 /* ARKit.swift */,
+				4044F3691B55ABE200937900 /* ARGeoCoordinate.swift */,
+				4044F36B1B55ABF900937900 /* ARCoordinate.swift */,
+				4044F36D1B55B94300937900 /* ARManager.swift */,
+				4044F36F1B55BC7800937900 /* ARViewProtocol.swift */,
+			);
+			path = ARKit;
+			sourceTree = "<group>";
+		};
 		404F4A341B28FE4E0072783C = {
 			isa = PBXGroup;
 			children = (
@@ -167,6 +218,7 @@
 		404F4A3F1B28FE4E0072783C /* KuduTour */ = {
 			isa = PBXGroup;
 			children = (
+				4044F3551B55A89C00937900 /* ARKit */,
 				404F4A421B28FE4E0072783C /* AppDelegate.swift */,
 				404F4A461B28FE4E0072783C /* Main.storyboard */,
 				404F4A491B28FE4E0072783C /* Images.xcassets */,
@@ -396,10 +448,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4044F3631B55A89C00937900 /* ARGeoCoordinate.m in Sources */,
 				401B3E6A1B32208F00A4B11F /* SecretStuff.swift in Sources */,
 				401666281B54851600A5F545 /* KTFormViewController.swift in Sources */,
+				4044F36A1B55ABE200937900 /* ARGeoCoordinate.swift in Sources */,
+				4044F3621B55A89C00937900 /* ARCoordinate.m in Sources */,
 				404F4A431B28FE4E0072783C /* AppDelegate.swift in Sources */,
+				4044F3641B55A89C00937900 /* ARKit.m in Sources */,
+				4044F3701B55BC7800937900 /* ARViewProtocol.swift in Sources */,
+				4044F3661B55A89C00937900 /* GEOLocations.m in Sources */,
+				4044F36C1B55ABF900937900 /* ARCoordinate.swift in Sources */,
+				4044F3681B55AA2C00937900 /* ARKit.swift in Sources */,
+				4044F36E1B55B94300937900 /* ARManager.swift in Sources */,
 				40C63BF21B5045550091FF66 /* KTViewController.swift in Sources */,
+				4044F3651B55A89C00937900 /* AugmentedRealityController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
