@@ -20,7 +20,6 @@ class KTViewController: UIViewController, UIImagePickerControllerDelegate, UINav
 
   // If we find a device we'll store it here for later use
   var captureDevice : AVCaptureDevice?
-  var locationManager = CLLocationManager()
 
   // MARK: Subviews
   var avPreviewView: UIView?

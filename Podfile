@@ -8,6 +8,7 @@ target 'KuduTour' do
 
   pod 'SwiftForms'
   pod 'AFNetworking', "~> 2.0"
+  pod 'SwiftyJSON', '~> 2.2.0'
 end
 
 target 'KuduTourTests' do

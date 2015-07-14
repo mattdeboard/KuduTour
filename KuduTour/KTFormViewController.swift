@@ -5,12 +5,17 @@
 //  Created by Matt DeBoard on 7/13/15.
 //  Copyright (c) 2015 Matt DeBoard. All rights reserved.
 //
-import UIKit
+import AFNetworking
+import CoreLocation
 import SwiftForms
+import SwiftyJSON
+import UIKit
 
 class KTFormViewController: FormViewController, CLLocationManagerDelegate {
   var formDescriptor: FormDescriptor?
   var locationManager = CLLocationManager()
+  var netManager = AFHTTPRequestOperationManager()
+
   private var latitude: CLLocationDegrees?
   private var longitude: CLLocationDegrees?
   private var altitude: CLLocationDegrees?
@@ -51,8 +56,10 @@ class KTFormViewController: FormViewController, CLLocationManagerDelegate {
     locationManager.delegate = self
     locationManager.requestWhenInUseAuthorization()
     locationManager.startUpdatingLocation()
-  }
+    netManager.requestSerializer = AFJSONRequestSerializer()
+    netManager.requestSerializer.setValue("Token \(API_TOKEN)", forHTTPHeaderField: "Authorization")
 
+  }
 
   // MARK: CLLocationManagerDelegate methods
 
@@ -64,24 +71,32 @@ class KTFormViewController: FormViewController, CLLocationManagerDelegate {
     latitude = manager.location.coordinate.latitude
     longitude = manager.location.coordinate.longitude
     altitude = manager.location.altitude
-    println(latitude!)
   }
 
   // MARK: Actions
 
   func submit(_: UIBarButtonItem!) {
-    var message : [String: AnyObject] = [
-      "latitude": "\(latitude!)",
-      "longitude": "\(longitude!)",
-      "altitude": "\(altitude!)"
+    var message: [String: AnyObject] = [
+      "geolocation": [
+        "lat": "\(latitude!)",
+        "lon": "\(longitude!)",
+        "altitude": "\(altitude!)"
+      ]
     ]
-
+    
     for (key, val) in self.form.formValues() {
       message[key as! String] = val
     }
 
-    let alert: UIAlertView = UIAlertView(title: "Form output", message: message.description, delegate: nil,
-      cancelButtonTitle: "OK")
-    alert.show()
+    netManager.POST("http://c1ef5ec1.ngrok.io/api/v1/markers/",
+      parameters: message,
+      success: { (operation: AFHTTPRequestOperation!, responseObject: AnyObject!) in
+        let alert: UIAlertView = UIAlertView(title: "POI Created!",
+          message: "Your Point of Interest marker was created successfully!", delegate: nil, cancelButtonTitle: "OK")
+      },
+      failure: { (operation: AFHTTPRequestOperation!,error: NSError!) in
+        println("Error: \(error.localizedDescription)")
+      }
+    )
   }
 }
