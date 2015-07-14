@@ -12,7 +12,7 @@
 import AVFoundation
 import UIKit
 
-class KuduViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate {
+class KTViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
   let captureSession = AVCaptureSession()
   let screenWidth = UIScreen.mainScreen().bounds.size.width
@@ -77,10 +77,6 @@ class KuduViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         }
       }
     }
-
-    locationManager.delegate = self
-    locationManager.requestWhenInUseAuthorization()
-    locationManager.startUpdatingLocation()
   }
 
   // MARK: Touch handlers
@@ -96,6 +92,7 @@ class KuduViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     var touchPercent = anyTouch.locationInView(self.view).x / screenWidth
     focusTo(Float(touchPercent))
   }
+
 
   // MARK: Device operations
 

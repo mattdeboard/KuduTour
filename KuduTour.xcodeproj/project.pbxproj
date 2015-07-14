@@ -34,7 +34,7 @@
 		404F4A861B28FFEA0072783C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 404F4A7C1B28FFEA0072783C /* Security.framework */; };
 		404F4A871B28FFEA0072783C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 404F4A7D1B28FFEA0072783C /* SystemConfiguration.framework */; };
 		404F4A881B28FFEA0072783C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 404F4A7E1B28FFEA0072783C /* UIKit.framework */; };
-		40C63BF21B5045550091FF66 /* KuduViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C63BF11B5045550091FF66 /* KuduViewController.swift */; };
+		40C63BF21B5045550091FF66 /* KTViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C63BF11B5045550091FF66 /* KTViewController.swift */; };
 		8B74C67E21F8D1B0144092A6 /* Pods_KuduTour.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1025F0C7762D94A37E67839C /* Pods_KuduTour.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -82,7 +82,7 @@
 		404F4A7D1B28FFEA0072783C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		404F4A7E1B28FFEA0072783C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		404F4A8A1B2900FF0072783C /* BridgingHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
-		40C63BF11B5045550091FF66 /* KuduViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KuduViewController.swift; sourceTree = "<group>"; };
+		40C63BF11B5045550091FF66 /* KTViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTViewController.swift; sourceTree = "<group>"; };
 		5A4F6671721DFDC4210CF2A8 /* Pods-KuduTour.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KuduTour.release.xcconfig"; path = "Pods/Target Support Files/Pods-KuduTour/Pods-KuduTour.release.xcconfig"; sourceTree = "<group>"; };
 		A97455721A1F470804CF978D /* Pods-KuduTour.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KuduTour.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KuduTour/Pods-KuduTour.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -156,7 +156,7 @@
 				404F4A401B28FE4E0072783C /* Supporting Files */,
 				404F4A8A1B2900FF0072783C /* BridgingHeader.h */,
 				401B3E691B32208F00A4B11F /* SecretStuff.swift */,
-				40C63BF11B5045550091FF66 /* KuduViewController.swift */,
+				40C63BF11B5045550091FF66 /* KTViewController.swift */,
 				401666271B54851600A5F545 /* KTFormViewController.swift */,
 			);
 			path = KuduTour;
@@ -379,7 +379,7 @@
 				401B3E6A1B32208F00A4B11F /* SecretStuff.swift in Sources */,
 				401666281B54851600A5F545 /* KTFormViewController.swift in Sources */,
 				404F4A431B28FE4E0072783C /* AppDelegate.swift in Sources */,
-				40C63BF21B5045550091FF66 /* KuduViewController.swift in Sources */,
+				40C63BF21B5045550091FF66 /* KTViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -517,7 +517,6 @@
 				);
 				INFOPLIST_FILE = KuduTour/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = KuduTour/BridgingHeader.h;
@@ -537,7 +536,6 @@
 				);
 				INFOPLIST_FILE = KuduTour/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = KuduTour/BridgingHeader.h;

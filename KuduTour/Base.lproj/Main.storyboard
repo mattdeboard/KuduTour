@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
-        <!--Kudu View Controller-->
+        <!--Video Preview View Controller-->
         <scene sceneID="M9J-OZ-eRM">
             <objects>
-                <viewController id="Vac-SL-c65" customClass="KuduViewController" customModule="KuduTour" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Video Preview View Controller" id="Vac-SL-c65" customClass="KTViewController" customModule="KuduTour" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="K8Y-Pq-hML"/>
                         <viewControllerLayoutGuide type="bottom" id="ABD-9f-cK3"/>
@@ -28,7 +28,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="71R-Zp-7Nd" kind="show" id="oXE-zd-pcs"/>
+                                    <segue destination="4jL-Nz-NSL" kind="show" identifier="showCreatePOIForm" id="jao-by-fUP"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -55,39 +55,31 @@
             </objects>
             <point key="canvasLocation" x="1061" y="1310"/>
         </scene>
-        <!--Root View Controller-->
-        <scene sceneID="Hat-Ni-XEZ">
+        <!--Create Point of Interest-->
+        <scene sceneID="wyw-eu-hUz">
             <objects>
-                <tableViewController id="71R-Zp-7Nd" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="gp1-VO-Qsj">
+                <tableViewController title="Create Point of Interest" id="4jL-Nz-NSL" customClass="KTFormViewController" customModule="KuduTour" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="dna-Sk-DHi">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="T33-EB-aeL">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Ejv-rC-FaW">
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="T33-EB-aeL" id="YWR-jb-fm7">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ejv-rC-FaW" id="dl2-6N-S7e">
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="71R-Zp-7Nd" id="rm0-aX-uVF"/>
-                            <outlet property="delegate" destination="71R-Zp-7Nd" id="dy5-iQ-2lz"/>
+                            <outlet property="dataSource" destination="4jL-Nz-NSL" id="aIL-eS-1FI"/>
+                            <outlet property="delegate" destination="4jL-Nz-NSL" id="bS0-MR-dZT"/>
                         </connections>
                     </tableView>
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="ohN-xj-fci">
-                        <barButtonItem key="backBarButtonItem" title="Cancel" id="1la-bl-How">
-                            <inset key="imageInsets" minX="-18" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        </barButtonItem>
-                    </navigationItem>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="d8o-Gm-wR3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ofk-2A-z6w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1805" y="1310"/>
+            <point key="canvasLocation" x="1778" y="1310"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="oQk-vu-eR9">
