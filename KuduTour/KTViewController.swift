@@ -6,13 +6,10 @@
 //  Copyright (c) 2015 Matt DeBoard. All rights reserved.
 //
 
-// Taken from
-// http://jamesonquave.com/blog/taking-control-of-the-iphone-camera-in-ios-8-with-swift-part-1/
-
 import AVFoundation
 import UIKit
 
-class KTViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class KTViewController: UIViewController {
 
   let captureSession = AVCaptureSession()
   let screenWidth = UIScreen.mainScreen().bounds.size.width
