@@ -127,3 +127,5 @@ target/
 # Fake server
 Server/static
 KuduTour/WikitudeSDKLicenseKey.swift
+Pods/
+Podfile.lock

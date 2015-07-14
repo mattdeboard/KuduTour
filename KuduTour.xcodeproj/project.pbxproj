@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		20F71E317F645F8F61DB88D2 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C792C3AC5445E7494392A34C /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		401666281B54851600A5F545 /* KTFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401666271B54851600A5F545 /* KTFormViewController.swift */; };
 		401B3E6A1B32208F00A4B11F /* SecretStuff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401B3E691B32208F00A4B11F /* SecretStuff.swift */; };
 		404F4A431B28FE4E0072783C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404F4A421B28FE4E0072783C /* AppDelegate.swift */; };
-		404F4A451B28FE4E0072783C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404F4A441B28FE4E0072783C /* ViewController.swift */; };
 		404F4A481B28FE4E0072783C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 404F4A461B28FE4E0072783C /* Main.storyboard */; };
 		404F4A4A1B28FE4E0072783C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 404F4A491B28FE4E0072783C /* Images.xcassets */; };
 		404F4A4D1B28FE4E0072783C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 404F4A4B1B28FE4E0072783C /* LaunchScreen.xib */; };
@@ -33,13 +34,11 @@
 		404F4A861B28FFEA0072783C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 404F4A7C1B28FFEA0072783C /* Security.framework */; };
 		404F4A871B28FFEA0072783C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 404F4A7D1B28FFEA0072783C /* SystemConfiguration.framework */; };
 		404F4A881B28FFEA0072783C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 404F4A7E1B28FFEA0072783C /* UIKit.framework */; };
-		409C8EB91B2BBCD4009DFE2F /* ade.js in Resources */ = {isa = PBXBuildFile; fileRef = 409C8EAE1B2BBCD4009DFE2F /* ade.js */; };
-		409C8EBA1B2BBCD4009DFE2F /* imageOne.png in Resources */ = {isa = PBXBuildFile; fileRef = 409C8EAF1B2BBCD4009DFE2F /* imageOne.png */; };
-		409C8EBB1B2BBCD4009DFE2F /* magazine.wtc in Resources */ = {isa = PBXBuildFile; fileRef = 409C8EB01B2BBCD4009DFE2F /* magazine.wtc */; };
-		409C8EBC1B2BBCD4009DFE2F /* surfer.png in Resources */ = {isa = PBXBuildFile; fileRef = 409C8EB11B2BBCD4009DFE2F /* surfer.png */; };
-		409C8EBD1B2BBCD4009DFE2F /* default.css in Resources */ = {isa = PBXBuildFile; fileRef = 409C8EB31B2BBCD4009DFE2F /* default.css */; };
-		409C8EBE1B2BBCD4009DFE2F /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 409C8EB51B2BBCD4009DFE2F /* index.html */; };
-		409C8EBF1B2BBCD4009DFE2F /* imageontarget.js in Resources */ = {isa = PBXBuildFile; fileRef = 409C8EB61B2BBCD4009DFE2F /* imageontarget.js */; };
+		40702BC91B559934000D47BB /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40702BC71B559934000D47BB /* AFNetworking.framework */; };
+		40702BCA1B559934000D47BB /* SwiftForms.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40702BC81B559934000D47BB /* SwiftForms.framework */; };
+		40702BCC1B559FDF000D47BB /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40702BCB1B559FDF000D47BB /* SwiftyJSON.framework */; };
+		40C63BF21B5045550091FF66 /* KTViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C63BF11B5045550091FF66 /* KTViewController.swift */; };
+		8B74C67E21F8D1B0144092A6 /* Pods_KuduTour.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1025F0C7762D94A37E67839C /* Pods_KuduTour.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,11 +52,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1025F0C7762D94A37E67839C /* Pods_KuduTour.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KuduTour.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		401666271B54851600A5F545 /* KTFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTFormViewController.swift; sourceTree = "<group>"; };
 		401B3E691B32208F00A4B11F /* SecretStuff.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecretStuff.swift; sourceTree = "<group>"; };
 		404F4A3D1B28FE4E0072783C /* KuduTour.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KuduTour.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		404F4A411B28FE4E0072783C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		404F4A421B28FE4E0072783C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		404F4A441B28FE4E0072783C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		404F4A471B28FE4E0072783C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		404F4A491B28FE4E0072783C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		404F4A4C1B28FE4E0072783C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -83,14 +83,14 @@
 		404F4A7C1B28FFEA0072783C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		404F4A7D1B28FFEA0072783C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		404F4A7E1B28FFEA0072783C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		404F4A8A1B2900FF0072783C /* BridgingHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
-		409C8EAE1B2BBCD4009DFE2F /* ade.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = ade.js; sourceTree = "<group>"; };
-		409C8EAF1B2BBCD4009DFE2F /* imageOne.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imageOne.png; sourceTree = "<group>"; };
-		409C8EB01B2BBCD4009DFE2F /* magazine.wtc */ = {isa = PBXFileReference; lastKnownFileType = file; path = magazine.wtc; sourceTree = "<group>"; };
-		409C8EB11B2BBCD4009DFE2F /* surfer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = surfer.png; sourceTree = "<group>"; };
-		409C8EB31B2BBCD4009DFE2F /* default.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = default.css; sourceTree = "<group>"; };
-		409C8EB51B2BBCD4009DFE2F /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
-		409C8EB61B2BBCD4009DFE2F /* imageontarget.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = imageontarget.js; sourceTree = "<group>"; };
+		40702BC61B5598D4000D47BB /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
+		40702BC71B559934000D47BB /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = "Pods/../build/Release-iphoneos/Pods-KuduTour/AFNetworking.framework"; sourceTree = "<group>"; };
+		40702BC81B559934000D47BB /* SwiftForms.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftForms.framework; path = "Pods/../build/Release-iphoneos/Pods-KuduTour/SwiftForms.framework"; sourceTree = "<group>"; };
+		40702BCB1B559FDF000D47BB /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "Pods/../build/Debug-iphoneos/Pods-KuduTour/SwiftyJSON.framework"; sourceTree = "<group>"; };
+		40C63BF11B5045550091FF66 /* KTViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTViewController.swift; sourceTree = "<group>"; };
+		5A4F6671721DFDC4210CF2A8 /* Pods-KuduTour.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KuduTour.release.xcconfig"; path = "Pods/Target Support Files/Pods-KuduTour/Pods-KuduTour.release.xcconfig"; sourceTree = "<group>"; };
+		A97455721A1F470804CF978D /* Pods-KuduTour.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KuduTour.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KuduTour/Pods-KuduTour.debug.xcconfig"; sourceTree = "<group>"; };
+		C792C3AC5445E7494392A34C /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +98,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40702BCC1B559FDF000D47BB /* SwiftyJSON.framework in Frameworks */,
+				40702BC91B559934000D47BB /* AFNetworking.framework in Frameworks */,
+				40702BCA1B559934000D47BB /* SwiftForms.framework in Frameworks */,
 				404F4A7F1B28FFEA0072783C /* Foundation.framework in Frameworks */,
 				404F4A801B28FFEA0072783C /* JavaScriptCore.framework in Frameworks */,
 				404F4A811B28FFEA0072783C /* libc++.dylib in Frameworks */,
@@ -117,6 +120,8 @@
 				404F4A731B28FF840072783C /* CoreMotion.framework in Frameworks */,
 				404F4A741B28FF840072783C /* CoreVideo.framework in Frameworks */,
 				404F4A631B28FF5A0072783C /* WikitudeSDK.framework in Frameworks */,
+				8B74C67E21F8D1B0144092A6 /* Pods_KuduTour.framework in Frameworks */,
+				20F71E317F645F8F61DB88D2 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,6 +135,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		401666291B54AC0900A5F545 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				40C63BF11B5045550091FF66 /* KTViewController.swift */,
+				401666271B54851600A5F545 /* KTFormViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		404F4A341B28FE4E0072783C = {
 			isa = PBXGroup;
 			children = (
@@ -137,6 +151,7 @@
 				404F4A3F1B28FE4E0072783C /* KuduTour */,
 				404F4A551B28FE4E0072783C /* KuduTourTests */,
 				404F4A3E1B28FE4E0072783C /* Products */,
+				D3F3B839BF1349AD5EEBF2CE /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -152,15 +167,14 @@
 		404F4A3F1B28FE4E0072783C /* KuduTour */ = {
 			isa = PBXGroup;
 			children = (
-				409C8EB81B2BBCD4009DFE2F /* ArchitectWorld */,
 				404F4A421B28FE4E0072783C /* AppDelegate.swift */,
-				404F4A441B28FE4E0072783C /* ViewController.swift */,
 				404F4A461B28FE4E0072783C /* Main.storyboard */,
 				404F4A491B28FE4E0072783C /* Images.xcassets */,
 				404F4A4B1B28FE4E0072783C /* LaunchScreen.xib */,
 				404F4A401B28FE4E0072783C /* Supporting Files */,
-				404F4A8A1B2900FF0072783C /* BridgingHeader.h */,
 				401B3E691B32208F00A4B11F /* SecretStuff.swift */,
+				401666291B54AC0900A5F545 /* Controllers */,
+				40702BC61B5598D4000D47BB /* BridgingHeader.h */,
 			);
 			path = KuduTour;
 			sourceTree = "<group>";
@@ -193,6 +207,9 @@
 		404F4A641B28FF650072783C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				40702BCB1B559FDF000D47BB /* SwiftyJSON.framework */,
+				40702BC71B559934000D47BB /* AFNetworking.framework */,
+				40702BC81B559934000D47BB /* SwiftForms.framework */,
 				404F4A751B28FFEA0072783C /* Foundation.framework */,
 				404F4A761B28FFEA0072783C /* JavaScriptCore.framework */,
 				404F4A771B28FFEA0072783C /* libc++.dylib */,
@@ -212,46 +229,19 @@
 				404F4A6B1B28FF840072783C /* CoreMotion.framework */,
 				404F4A6C1B28FF840072783C /* CoreVideo.framework */,
 				404F4A621B28FF5A0072783C /* WikitudeSDK.framework */,
+				1025F0C7762D94A37E67839C /* Pods_KuduTour.framework */,
+				C792C3AC5445E7494392A34C /* Pods.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		409C8EB21B2BBCD4009DFE2F /* assets */ = {
+		D3F3B839BF1349AD5EEBF2CE /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				409C8EAF1B2BBCD4009DFE2F /* imageOne.png */,
-				409C8EB01B2BBCD4009DFE2F /* magazine.wtc */,
-				409C8EB11B2BBCD4009DFE2F /* surfer.png */,
+				A97455721A1F470804CF978D /* Pods-KuduTour.debug.xcconfig */,
+				5A4F6671721DFDC4210CF2A8 /* Pods-KuduTour.release.xcconfig */,
 			);
-			path = assets;
-			sourceTree = "<group>";
-		};
-		409C8EB41B2BBCD4009DFE2F /* css */ = {
-			isa = PBXGroup;
-			children = (
-				409C8EB31B2BBCD4009DFE2F /* default.css */,
-			);
-			path = css;
-			sourceTree = "<group>";
-		};
-		409C8EB71B2BBCD4009DFE2F /* js */ = {
-			isa = PBXGroup;
-			children = (
-				409C8EB61B2BBCD4009DFE2F /* imageontarget.js */,
-			);
-			path = js;
-			sourceTree = "<group>";
-		};
-		409C8EB81B2BBCD4009DFE2F /* ArchitectWorld */ = {
-			isa = PBXGroup;
-			children = (
-				409C8EAE1B2BBCD4009DFE2F /* ade.js */,
-				409C8EB21B2BBCD4009DFE2F /* assets */,
-				409C8EB41B2BBCD4009DFE2F /* css */,
-				409C8EB51B2BBCD4009DFE2F /* index.html */,
-				409C8EB71B2BBCD4009DFE2F /* js */,
-			);
-			path = ArchitectWorld;
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,9 +251,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 404F4A5C1B28FE4E0072783C /* Build configuration list for PBXNativeTarget "KuduTour" */;
 			buildPhases = (
+				265CBE4BECD73814BB27878A /* Check Pods Manifest.lock */,
 				404F4A391B28FE4E0072783C /* Sources */,
 				404F4A3A1B28FE4E0072783C /* Frameworks */,
 				404F4A3B1B28FE4E0072783C /* Resources */,
+				C42B8B969A36C11E41B54FE4 /* Embed Pods Frameworks */,
+				8C3EF0238DB08D6F0F1A1974 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -337,14 +330,7 @@
 			files = (
 				404F4A481B28FE4E0072783C /* Main.storyboard in Resources */,
 				404F4A4D1B28FE4E0072783C /* LaunchScreen.xib in Resources */,
-				409C8EBF1B2BBCD4009DFE2F /* imageontarget.js in Resources */,
-				409C8EBB1B2BBCD4009DFE2F /* magazine.wtc in Resources */,
-				409C8EBE1B2BBCD4009DFE2F /* index.html in Resources */,
-				409C8EBA1B2BBCD4009DFE2F /* imageOne.png in Resources */,
 				404F4A4A1B28FE4E0072783C /* Images.xcassets in Resources */,
-				409C8EBC1B2BBCD4009DFE2F /* surfer.png in Resources */,
-				409C8EB91B2BBCD4009DFE2F /* ade.js in Resources */,
-				409C8EBD1B2BBCD4009DFE2F /* default.css in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,14 +343,63 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		265CBE4BECD73814BB27878A /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8C3EF0238DB08D6F0F1A1974 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KuduTour/Pods-KuduTour-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C42B8B969A36C11E41B54FE4 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KuduTour/Pods-KuduTour-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		404F4A391B28FE4E0072783C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				404F4A451B28FE4E0072783C /* ViewController.swift in Sources */,
 				401B3E6A1B32208F00A4B11F /* SecretStuff.swift in Sources */,
+				401666281B54851600A5F545 /* KTFormViewController.swift in Sources */,
 				404F4A431B28FE4E0072783C /* AppDelegate.swift in Sources */,
+				40C63BF21B5045550091FF66 /* KTViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -491,6 +526,7 @@
 		};
 		404F4A5D1B28FE4E0072783C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A97455721A1F470804CF978D /* Pods-KuduTour.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -498,10 +534,12 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
+					"$(PROJECT_DIR)/build/Release-iphoneos/Pods-KuduTour",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/Pods-KuduTour",
 				);
 				INFOPLIST_FILE = KuduTour/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = KuduTour/BridgingHeader.h;
@@ -510,6 +548,7 @@
 		};
 		404F4A5E1B28FE4E0072783C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5A4F6671721DFDC4210CF2A8 /* Pods-KuduTour.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -517,10 +556,12 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
+					"$(PROJECT_DIR)/build/Release-iphoneos/Pods-KuduTour",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/Pods-KuduTour",
 				);
 				INFOPLIST_FILE = KuduTour/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = KuduTour/BridgingHeader.h;

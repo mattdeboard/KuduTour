@@ -1,44 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workspace
    version = "1.0">
-   <Group
-      location = "group:KuduTour/ArchitectWorld"
-      name = "ArchitectWorld">
-      <FileRef
-         location = "group:ade.js">
-      </FileRef>
-      <Group
-         location = "group:assets"
-         name = "assets">
-         <FileRef
-            location = "group:imageOne.png">
-         </FileRef>
-         <FileRef
-            location = "group:magazine.wtc">
-         </FileRef>
-         <FileRef
-            location = "group:surfer.png">
-         </FileRef>
-      </Group>
-      <Group
-         location = "group:css"
-         name = "css">
-         <FileRef
-            location = "group:default.css">
-         </FileRef>
-      </Group>
-      <FileRef
-         location = "group:index.html">
-      </FileRef>
-      <Group
-         location = "group:js"
-         name = "js">
-         <FileRef
-            location = "group:imageontarget.js">
-         </FileRef>
-      </Group>
-   </Group>
    <FileRef
       location = "container:KuduTour.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:KuduTour.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Pods/Pods.xcodeproj">
    </FileRef>
 </Workspace>
