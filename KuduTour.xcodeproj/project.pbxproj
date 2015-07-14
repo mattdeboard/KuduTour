@@ -125,6 +125,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		401666291B54AC0900A5F545 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				40C63BF11B5045550091FF66 /* KTViewController.swift */,
+				401666271B54851600A5F545 /* KTFormViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		404F4A341B28FE4E0072783C = {
 			isa = PBXGroup;
 			children = (
@@ -156,8 +165,7 @@
 				404F4A401B28FE4E0072783C /* Supporting Files */,
 				404F4A8A1B2900FF0072783C /* BridgingHeader.h */,
 				401B3E691B32208F00A4B11F /* SecretStuff.swift */,
-				40C63BF11B5045550091FF66 /* KTViewController.swift */,
-				401666271B54851600A5F545 /* KTFormViewController.swift */,
+				401666291B54AC0900A5F545 /* Controllers */,
 			);
 			path = KuduTour;
 			sourceTree = "<group>";
