@@ -8,6 +8,7 @@
 
 import CoreLocation
 import Foundation
+import UIKit
 
 func angleFromCoordinate(first: CLLocationCoordinate2D, second: CLLocationCoordinate2D) -> Float64 {
   let longitudinalDifference = second.longitude - first.longitude
@@ -27,6 +28,7 @@ func angleFromCoordinate(first: CLLocationCoordinate2D, second: CLLocationCoordi
 class ARGeoCoordinate: ARCoordinate {
   var distanceFromOrigin: CLLocationDistance?
   var geoLocation: CLLocation?
+  var displayView: UIView?
 
   func calibrateUsingOrigin(origin: CLLocation) {
     if let loc = geoLocation {

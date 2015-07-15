@@ -7,13 +7,15 @@
 //
 
 import AVFoundation
+import CoreLocation
 import UIKit
 
-class KTViewController: UIViewController {
+class KTViewController: UIViewController, ARDelegate {
 
   let captureSession = AVCaptureSession()
   let screenWidth = UIScreen.mainScreen().bounds.size.width
   var previewLayer : AVCaptureVideoPreviewLayer?
+  var arManager: ARManager?
 
   // If we find a device we'll store it here for later use
   var captureDevice : AVCaptureDevice?
@@ -53,6 +55,7 @@ class KTViewController: UIViewController {
     super.viewDidLoad()
 
     avPreviewView = self.view.viewWithTag(0)
+    arManager = ARManager(arView: view!, parentVC: self, arDelegate: self)
 
     // Do any additional setup after loading the view, typically from a nib.
     captureSession.sessionPreset = AVCaptureSessionPresetHigh
@@ -147,5 +150,19 @@ class KTViewController: UIViewController {
     default:
       previewConn!.videoOrientation = AVCaptureVideoOrientation.LandscapeRight
     }
+  }
+
+  // MARK: ARDelegate protocol methods
+
+  func didUpdateHeading(newHeading: CLHeading) {
+    println("New Heading: \(newHeading)")
+  }
+
+  func didUpdateLocation(newLocation: CLLocation) {
+    println("New Location: \(newLocation)")
+  }
+
+  func didUpdateOrientation(newOrientation: UIDeviceOrientation) {
+    println("New Orientation: \(newOrientation)")
   }
 }
