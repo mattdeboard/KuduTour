@@ -52,7 +52,7 @@ class ARManager: NSObject, CLLocationManagerDelegate {
   var delegate: ARDelegate?
   var debugView = UILabel()
   var coordinates: [ARGeoCoordinate?]?
-  var captureDevice : AVCaptureDevice?
+  var captureDevice: AVCaptureDevice?
 
   // MARK: Managers
   var motionManager = CMMotionManager()
@@ -67,31 +67,12 @@ class ARManager: NSObject, CLLocationManagerDelegate {
     displayView = arView
     latestHeading = HEADING_NOT_SET
     prevHeading = HEADING_NOT_SET
-
     degreeRange = arView.frame.size.width.native / ADJUST_BY
-
     captureSession.sessionPreset = AVCaptureSessionPresetHigh
 
-    let devices = AVCaptureDevice.devices()
-
-    // Loop through all the capture devices on this phone
-    for device in devices {
-      // Make sure this particular device supports video
-      if (device.hasMediaType(AVMediaTypeVideo)) {
-        // Finally check the position and confirm we've got the back camera
-        if(device.position == AVCaptureDevicePosition.Back) {
-          captureDevice = device as? AVCaptureDevice
-          if captureDevice != nil {
-            println("Capture device found")
-            beginSession()
-          }
-        }
-      }
-    }
+    startAVCaptureSession()
     startLocationServices()
     startMotionServices()
-    centerLocation = CLLocation(latitude: locationManager.location.coordinate.latitude,
-      longitude: locationManager.location.coordinate.longitude)
   }
 
   // MARK: Services init
@@ -99,10 +80,7 @@ class ARManager: NSObject, CLLocationManagerDelegate {
   func startMotionServices() {
     motionManager.gyroUpdateInterval = 0.1
     motionManager.startDeviceMotionUpdatesToQueue(NSOperationQueue.mainQueue()) {
-      [weak self](data: CMDeviceMotion!, error: NSError!) in
-
-      let rotation = atan2(data.gravity.x, data.gravity.y) - M_PI
-      self?.displayView!.transform = CGAffineTransformMakeRotation(CGFloat(rotation))
+      (data: CMDeviceMotion!, error: NSError!) in
     }
   }
 
@@ -114,7 +92,30 @@ class ARManager: NSObject, CLLocationManagerDelegate {
     locationManager.requestWhenInUseAuthorization()
     locationManager.startUpdatingLocation()
     locationManager.startUpdatingHeading()
+    centerLocation = CLLocation(latitude: locationManager.location.coordinate.latitude,
+      longitude: locationManager.location.coordinate.longitude)
+
   }
+
+  func startAVCaptureSession() {
+    let devices = AVCaptureDevice.devices()
+
+    // Loop through all the capture devices on this phone
+    for device in devices {
+      // Make sure this particular device supports video
+      if (device.hasMediaType(AVMediaTypeVideo)) {
+        // Finally check the position and confirm we've got the back camera
+        if(device.position == AVCaptureDevicePosition.Back) {
+          captureDevice = device as? AVCaptureDevice
+          if captureDevice != nil {
+            beginSession()
+          }
+        }
+      }
+    }
+  }
+
+  // MARK: Coordinate jiggeration
 
   func updateCenterCoordinate() {
     var adjustment: Float64
@@ -215,7 +216,7 @@ class ARManager: NSObject, CLLocationManagerDelegate {
     let bounds = displayView?.bounds
     let currentAzimuth = centerCoordinate.azimuth!
     let pointAzimuth = coordinate.azimuth!
-    let azimuth = findDeltaOfRadianCenter(currentAzimuth, pointAzimuth: pointAzimuth, isBetweenNorth: false)
+    let azimuth: Azimuth = findDeltaOfRadianCenter(currentAzimuth, pointAzimuth: pointAzimuth, isBetweenNorth: false)
     let deltaAzimuth = azimuth.azimuth
     let halfWidth = bounds!.size.width / 2
     let xAdjust = deltaAzimuth / degreesToRadians(1)
@@ -257,16 +258,26 @@ class ARManager: NSObject, CLLocationManagerDelegate {
     }
   }
 
-  func focusTo(value : Float) {
-    if let device = captureDevice {
-      if(device.lockForConfiguration(nil)) {
-        device.setFocusModeLockedWithLensPosition(value, completionHandler: nil)
-        device.unlockForConfiguration()
-      }
+  func videoOrientation() {
+    let previewConn = self.previewLayer?.connection
+    let orientation = UIApplication.sharedApplication().statusBarOrientation
+
+    switch orientation {
+    case UIInterfaceOrientation.LandscapeLeft:
+      previewConn!.videoOrientation = AVCaptureVideoOrientation.LandscapeLeft
+    case UIInterfaceOrientation.LandscapeRight:
+      previewConn!.videoOrientation = AVCaptureVideoOrientation.LandscapeRight
+    case UIInterfaceOrientation.Portrait:
+      previewConn!.videoOrientation = AVCaptureVideoOrientation.Portrait
+    case UIInterfaceOrientation.PortraitUpsideDown:
+      previewConn!.videoOrientation = AVCaptureVideoOrientation.PortraitUpsideDown
+    default:
+      previewConn!.videoOrientation = AVCaptureVideoOrientation.LandscapeRight
     }
   }
 
   func beginSession() {
+    println("Capture device found")
     configureDevice()
 
     var err : NSError? = nil
@@ -280,6 +291,7 @@ class ARManager: NSObject, CLLocationManagerDelegate {
     displayView!.layer.addSublayer(previewLayer)
     previewLayer?.frame = displayView!.bounds
     previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
+    videoOrientation()
     captureSession.startRunning()
   }
 }

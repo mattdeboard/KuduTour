@@ -12,7 +12,6 @@ import UIKit
 
 class KTViewController: UIViewController, ARDelegate {
 
-  let captureSession = AVCaptureSession()
   let screenWidth = UIScreen.mainScreen().bounds.size.width
   var previewLayer : AVCaptureVideoPreviewLayer?
   var arManager: ARManager?
@@ -21,27 +20,11 @@ class KTViewController: UIViewController, ARDelegate {
   var captureDevice : AVCaptureDevice?
 
   // MARK: Subviews
-  var avPreviewView: UIView?
+  
   @IBOutlet weak var someButton: UIButton!
   @IBOutlet weak var buttonLabel: UILabel!
 
   // MARK: View Lifecycle
-
-  override func viewWillTransitionToSize(size: CGSize,
-    withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-      // I do not understand why I have to handle this at all. But since I do, I want to know how to make the transition
-      // between portrait and landscape seamless as it is in the camera app. I bet I'm doing something wrong here that
-      // I'll have to rip out in six months.
-      super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
-      coordinator.animateAlongsideTransition({ (context) -> Void in
-        if (self.previewLayer?.connection.supportsVideoOrientation)! {
-          self.previewLayer?.frame = CGRectMake(0, 0, size.width, size.height)
-          self.videoOrientation()
-        }
-        },
-        completion: { (context) -> Void in
-      })
-  }
 
   override func viewWillAppear(animated: Bool) {
     self.navigationController?.navigationBarHidden = true
@@ -53,31 +36,24 @@ class KTViewController: UIViewController, ARDelegate {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-
-    avPreviewView = self.view.viewWithTag(0)
     arManager = ARManager(arView: view!, parentVC: self, arDelegate: self)
-
-    // Do any additional setup after loading the view, typically from a nib.
-    captureSession.sessionPreset = AVCaptureSessionPresetHigh
-
-    let devices = AVCaptureDevice.devices()
-
-    // Loop through all the capture devices on this phone
-    for device in devices {
-      // Make sure this particular device supports video
-      if (device.hasMediaType(AVMediaTypeVideo)) {
-        // Finally check the position and confirm we've got the back camera
-        if(device.position == AVCaptureDevicePosition.Back) {
-          captureDevice = device as? AVCaptureDevice
-          if captureDevice != nil {
-            println("Capture device found")
-            beginSession()
-          }
-        }
-      }
-    }
   }
 
+  override func viewWillTransitionToSize(size: CGSize,
+    withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+      // I do not understand why I have to handle this at all. But since I do, I want to know how to make the transition
+      // between portrait and landscape seamless as it is in the camera app. I bet I'm doing something wrong here that
+      // I'll have to rip out in six months.
+      super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
+      coordinator.animateAlongsideTransition({ (context) -> Void in
+        if (self.arManager!.previewLayer?.connection.supportsVideoOrientation)! {
+          self.arManager!.previewLayer?.frame = CGRectMake(0, 0, size.width, size.height)
+          self.arManager!.videoOrientation()
+        }
+        },
+        completion: { (context) -> Void in
+      })
+  }
   // MARK: Touch handlers
 
   override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
@@ -93,62 +69,12 @@ class KTViewController: UIViewController, ARDelegate {
   }
 
 
-  // MARK: Device operations
-
-  func configureDevice() {
-    if let device = captureDevice {
-      device.lockForConfiguration(nil)
-      device.focusMode = .Locked
-      device.unlockForConfiguration()
-    }
-  }
-
   func focusTo(value : Float) {
     if let device = captureDevice {
       if(device.lockForConfiguration(nil)) {
         device.setFocusModeLockedWithLensPosition(value, completionHandler: nil)
         device.unlockForConfiguration()
       }
-    }
-  }
-
-  func beginSession() {
-    configureDevice()
-
-    var err : NSError? = nil
-    captureSession.addInput(AVCaptureDeviceInput(device: captureDevice, error: &err))
-
-    if err != nil {
-      println("error: \(err?.localizedDescription)")
-    }
-
-    previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-    self.view.layer.addSublayer(previewLayer)
-    self.view.layer.addSublayer(buttonLabel.layer)
-    self.view.layer.addSublayer(someButton.layer)
-    previewLayer?.frame = self.view.bounds
-    previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
-    videoOrientation()
-    captureSession.startRunning()
-  }
-
-  // MARK: Utility methods
-
-  func videoOrientation() {
-    let previewConn = self.previewLayer?.connection
-    let orientation = UIApplication.sharedApplication().statusBarOrientation
-
-    switch orientation {
-    case UIInterfaceOrientation.LandscapeLeft:
-      previewConn!.videoOrientation = AVCaptureVideoOrientation.LandscapeLeft
-    case UIInterfaceOrientation.LandscapeRight:
-      previewConn!.videoOrientation = AVCaptureVideoOrientation.LandscapeRight
-    case UIInterfaceOrientation.Portrait:
-      previewConn!.videoOrientation = AVCaptureVideoOrientation.Portrait
-    case UIInterfaceOrientation.PortraitUpsideDown:
-      previewConn!.videoOrientation = AVCaptureVideoOrientation.PortraitUpsideDown
-    default:
-      previewConn!.videoOrientation = AVCaptureVideoOrientation.LandscapeRight
     }
   }
 
