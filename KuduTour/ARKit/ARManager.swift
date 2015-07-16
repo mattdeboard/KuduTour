@@ -28,6 +28,10 @@ struct Azimuth {
   var isBetweenNorth: Bool
 }
 
+func magnitudeFromAttitude(attitude: CMAttitude) -> Double {
+  return sqrt(pow(attitude.roll, 2) + pow(attitude.yaw, 2) + pow(attitude.pitch, 2))
+}
+
 class ARManager: NSObject, CLLocationManagerDelegate {
   // MARK: Private properties
   private var latestHeading: Float64?
@@ -51,12 +55,15 @@ class ARManager: NSObject, CLLocationManagerDelegate {
   var previewLayer = AVCaptureVideoPreviewLayer()
   var delegate: ARDelegate?
   var debugView = UILabel()
-  var coordinates: [ARGeoCoordinate?]?
+  var coordinates: [ARGeoCoordinate?] = []
   var captureDevice: AVCaptureDevice?
 
   // MARK: Managers
   var motionManager = CMMotionManager()
   var locationManager = CLLocationManager()
+  var markerManager = KTPOIMarkerManager()
+
+  var initialAttitude: CMAttitude?
 
   // MARK: Initialization
 
@@ -70,9 +77,17 @@ class ARManager: NSObject, CLLocationManagerDelegate {
     degreeRange = arView.frame.size.width.native / ADJUST_BY
     captureSession.sessionPreset = AVCaptureSessionPresetHigh
 
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateCoordinates",
+      name: markerManager.fetchNotification.name, object: nil)
+    markerManager.fetchMarkers(delegate as! KTViewController)
+
     startAVCaptureSession()
     startLocationServices()
     startMotionServices()
+  }
+
+  func updateCoordinates() {
+    coordinates = markerManager.markers
   }
 
   // MARK: Services init
@@ -81,6 +96,21 @@ class ARManager: NSObject, CLLocationManagerDelegate {
     motionManager.gyroUpdateInterval = 0.1
     motionManager.startDeviceMotionUpdatesToQueue(NSOperationQueue.mainQueue()) {
       (data: CMDeviceMotion!, error: NSError!) in
+      if self.initialAttitude == nil {
+        self.initialAttitude = data.attitude
+        return
+      }
+      // translate the attitude
+      data.attitude.multiplyByInverseOfAttitude(self.initialAttitude)
+
+      // calculate magnitude of the change from our initial attitude
+      let magnitude = magnitudeFromAttitude(data.attitude) ?? 0
+
+      if magnitude >= 0.8 {
+        println("Initial Magnitude: \(magnitudeFromAttitude(self.initialAttitude!))")
+        println("Current Magnitude: \(magnitude)")
+        self.updateCenterCoordinate()
+      }
     }
   }
 
@@ -120,19 +150,20 @@ class ARManager: NSObject, CLLocationManagerDelegate {
   func updateCenterCoordinate() {
     var adjustment: Float64
 
-    switch cameraOrientation! {
-    case UIDeviceOrientation.LandscapeLeft:
-      adjustment = degreesToRadians(270)
-    case UIDeviceOrientation.LandscapeRight:
-      adjustment = degreesToRadians(90)
-    case UIDeviceOrientation.PortraitUpsideDown:
-      adjustment = degreesToRadians(180)
-    default:
-      adjustment = 0
+    if let orientation = cameraOrientation {
+      switch orientation {
+      case UIDeviceOrientation.LandscapeLeft:
+        adjustment = degreesToRadians(270)
+      case UIDeviceOrientation.LandscapeRight:
+        adjustment = degreesToRadians(90)
+      case UIDeviceOrientation.PortraitUpsideDown:
+        adjustment = degreesToRadians(180)
+      default:
+        adjustment = 0
+      }
+      centerCoordinate.azimuth = latestHeading! - adjustment
+      updateLocations()
     }
-
-    centerCoordinate.azimuth = latestHeading! - adjustment
-    updateLocations()
   }
 
   func findDeltaOfRadianCenter(centerAzimuth: Float64, pointAzimuth: Float64, isBetweenNorth: Bool) -> Azimuth {
@@ -173,7 +204,7 @@ class ARManager: NSObject, CLLocationManagerDelegate {
   }
 
   func updateLocations() {
-    for item in coordinates! {
+    for item in coordinates {
       let markerView = item!.displayView!
       if shouldDisplayCoordinate(item!) {
         let loc = pointForCoordinate(item!)
@@ -244,8 +275,13 @@ class ARManager: NSObject, CLLocationManagerDelegate {
 
   func locationManager(manager: CLLocationManager!, didUpdateToLocation newLocation: CLLocation!,
     fromLocation oldLocation: CLLocation!) {
-    centerLocation = newLocation
-    delegate?.didUpdateLocation(newLocation)
+      centerLocation = newLocation
+
+      for geoloc in coordinates {
+        geoloc?.calibrateUsingOrigin(centerLocation)
+      }
+
+      delegate?.didUpdateLocation(newLocation)
   }
 
   // MARK: Camera Setup & Config

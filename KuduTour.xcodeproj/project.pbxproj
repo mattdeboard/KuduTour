@@ -15,6 +15,8 @@
 		4044F36C1B55ABF900937900 /* ARCoordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4044F36B1B55ABF900937900 /* ARCoordinate.swift */; };
 		4044F36E1B55B94300937900 /* ARManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4044F36D1B55B94300937900 /* ARManager.swift */; };
 		4044F3701B55BC7800937900 /* ARViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4044F36F1B55BC7800937900 /* ARViewProtocol.swift */; };
+		4044F3721B5717F000937900 /* KTPOIMarkerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4044F3711B5717F000937900 /* KTPOIMarkerManager.swift */; };
+		4044F3741B571A6B00937900 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4044F3731B571A6B00937900 /* NetworkManager.swift */; };
 		404F4A431B28FE4E0072783C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404F4A421B28FE4E0072783C /* AppDelegate.swift */; };
 		404F4A481B28FE4E0072783C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 404F4A461B28FE4E0072783C /* Main.storyboard */; };
 		404F4A4A1B28FE4E0072783C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 404F4A491B28FE4E0072783C /* Images.xcassets */; };
@@ -65,6 +67,8 @@
 		4044F36B1B55ABF900937900 /* ARCoordinate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARCoordinate.swift; sourceTree = "<group>"; };
 		4044F36D1B55B94300937900 /* ARManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARManager.swift; sourceTree = "<group>"; };
 		4044F36F1B55BC7800937900 /* ARViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARViewProtocol.swift; sourceTree = "<group>"; };
+		4044F3711B5717F000937900 /* KTPOIMarkerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KTPOIMarkerManager.swift; path = ARKit/KTPOIMarkerManager.swift; sourceTree = "<group>"; };
+		4044F3731B571A6B00937900 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		404F4A3D1B28FE4E0072783C /* KuduTour.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KuduTour.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		404F4A411B28FE4E0072783C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		404F4A421B28FE4E0072783C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -189,6 +193,7 @@
 		404F4A3F1B28FE4E0072783C /* KuduTour */ = {
 			isa = PBXGroup;
 			children = (
+				4044F3711B5717F000937900 /* KTPOIMarkerManager.swift */,
 				4044F3551B55A89C00937900 /* ARKit */,
 				404F4A421B28FE4E0072783C /* AppDelegate.swift */,
 				404F4A461B28FE4E0072783C /* Main.storyboard */,
@@ -198,6 +203,7 @@
 				401B3E691B32208F00A4B11F /* SecretStuff.swift */,
 				401666291B54AC0900A5F545 /* Controllers */,
 				40702BC61B5598D4000D47BB /* BridgingHeader.h */,
+				4044F3731B571A6B00937900 /* NetworkManager.swift */,
 			);
 			path = KuduTour;
 			sourceTree = "<group>";
@@ -423,11 +429,13 @@
 				401666281B54851600A5F545 /* KTFormViewController.swift in Sources */,
 				4044F36A1B55ABE200937900 /* ARGeoCoordinate.swift in Sources */,
 				404F4A431B28FE4E0072783C /* AppDelegate.swift in Sources */,
+				4044F3741B571A6B00937900 /* NetworkManager.swift in Sources */,
 				4044F3701B55BC7800937900 /* ARViewProtocol.swift in Sources */,
 				4044F36C1B55ABF900937900 /* ARCoordinate.swift in Sources */,
 				4044F3681B55AA2C00937900 /* ARKit.swift in Sources */,
 				4044F36E1B55B94300937900 /* ARManager.swift in Sources */,
 				40C63BF21B5045550091FF66 /* KTViewController.swift in Sources */,
+				4044F3721B5717F000937900 /* KTPOIMarkerManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

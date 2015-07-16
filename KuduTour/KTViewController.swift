@@ -85,7 +85,7 @@ class KTViewController: UIViewController, ARDelegate {
   }
 
   func didUpdateLocation(newLocation: CLLocation) {
-    println("New Location: \(newLocation)")
+    // println("New Location: \(newLocation)")
   }
 
   func didUpdateOrientation(newOrientation: UIDeviceOrientation) {

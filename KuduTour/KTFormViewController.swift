@@ -13,7 +13,7 @@ import UIKit
 class KTFormViewController: FormViewController, CLLocationManagerDelegate {
   var formDescriptor: FormDescriptor?
   var locationManager = CLLocationManager()
-  var netManager = AFHTTPRequestOperationManager()
+  var netManager = networkManager()
 
   private var latitude: CLLocationDegrees?
   private var longitude: CLLocationDegrees?
@@ -55,9 +55,6 @@ class KTFormViewController: FormViewController, CLLocationManagerDelegate {
     locationManager.delegate = self
     locationManager.requestWhenInUseAuthorization()
     locationManager.startUpdatingLocation()
-    netManager.requestSerializer = AFJSONRequestSerializer()
-    netManager.requestSerializer.setValue("Token \(API_TOKEN)", forHTTPHeaderField: "Authorization")
-
   }
 
   // MARK: CLLocationManagerDelegate methods
@@ -87,7 +84,7 @@ class KTFormViewController: FormViewController, CLLocationManagerDelegate {
       message[key as! String] = val
     }
 
-    netManager.POST("http://c1ef5ec1.ngrok.io/api/v1/markers/",
+    netManager.POST(resourcePath(netManager, "markers/"),
       parameters: message,
       success: { (operation: AFHTTPRequestOperation!, responseObject: AnyObject!) in
         let alert: UIAlertView = UIAlertView(title: "POI Created!",
