@@ -36,7 +36,7 @@ class KTViewController: UIViewController, ARDelegate {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    arManager = ARManager(arView: view!, parentVC: self, arDelegate: self)
+    arManager = ARManager(arView: view!, parentVC: self, arDelegate: self, auxViewArr: [someButton, buttonLabel])
   }
 
   override func viewWillTransitionToSize(size: CGSize,

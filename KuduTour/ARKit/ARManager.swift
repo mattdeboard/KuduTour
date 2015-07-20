@@ -50,6 +50,7 @@ class ARManager: NSObject, CLLocationManagerDelegate {
   var centerCoordinate = ARCoordinate()
   var centerLocation = CLLocation()
   var displayView: UIView?
+  var auxViews: [UIView?]?
   var parentViewController: UIViewController?
   var captureSession = AVCaptureSession()
   var previewLayer = AVCaptureVideoPreviewLayer()
@@ -67,11 +68,12 @@ class ARManager: NSObject, CLLocationManagerDelegate {
 
   // MARK: Initialization
 
-  convenience init(arView: UIView, parentVC: UIViewController, arDelegate: ARDelegate) {
+  convenience init(arView: UIView, parentVC: UIViewController, arDelegate: ARDelegate, auxViewArr: [UIView?] = []) {
     self.init()
     delegate = arDelegate
     parentViewController = parentVC
     displayView = arView
+    auxViews = auxViewArr
     latestHeading = HEADING_NOT_SET
     prevHeading = HEADING_NOT_SET
     degreeRange = arView.frame.size.width.native / ADJUST_BY
@@ -325,6 +327,11 @@ class ARManager: NSObject, CLLocationManagerDelegate {
 
     previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
     displayView!.layer.addSublayer(previewLayer)
+
+    for v in auxViews! {
+      displayView!.layer.addSublayer(v?.layer)
+    }
+    
     previewLayer?.frame = displayView!.bounds
     previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
     videoOrientation()
