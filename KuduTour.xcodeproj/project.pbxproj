@@ -27,6 +27,7 @@
 		404F4A4D1B28FE4E0072783C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 404F4A4B1B28FE4E0072783C /* LaunchScreen.xib */; };
 		404F4A591B28FE4E0072783C /* KuduTourTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404F4A581B28FE4E0072783C /* KuduTourTests.swift */; };
 		40C63BF21B5045550091FF66 /* KTViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C63BF11B5045550091FF66 /* KTViewController.swift */; };
+		40C8F1E91B60785A0026A221 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40C8F1E81B60785A0026A221 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		404F4A581B28FE4E0072783C /* KuduTourTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KuduTourTests.swift; sourceTree = "<group>"; };
 		40702BC61B5598D4000D47BB /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
 		40C63BF11B5045550091FF66 /* KTViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTViewController.swift; sourceTree = "<group>"; };
+		40C8F1E81B60785A0026A221 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		5A4F6671721DFDC4210CF2A8 /* Pods-KuduTour.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KuduTour.release.xcconfig"; path = "Pods/Target Support Files/Pods-KuduTour/Pods-KuduTour.release.xcconfig"; sourceTree = "<group>"; };
 		A97455721A1F470804CF978D /* Pods-KuduTour.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KuduTour.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KuduTour/Pods-KuduTour.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -76,6 +78,7 @@
 			files = (
 				40104D3D1B6077630089C2FF /* SwiftyJSON.framework in Frameworks */,
 				40104D3B1B6077580089C2FF /* SwiftForms.framework in Frameworks */,
+				40C8F1E91B60785A0026A221 /* MapKit.framework in Frameworks */,
 				40104D391B6077490089C2FF /* AFNetworking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -116,6 +119,7 @@
 		404F4A341B28FE4E0072783C = {
 			isa = PBXGroup;
 			children = (
+				40C8F1E81B60785A0026A221 /* MapKit.framework */,
 				40104D3C1B6077630089C2FF /* SwiftyJSON.framework */,
 				40104D3A1B6077580089C2FF /* SwiftForms.framework */,
 				40104D381B6077490089C2FF /* AFNetworking.framework */,
@@ -240,6 +244,11 @@
 					404F4A3C1B28FE4E0072783C = {
 						CreatedOnToolsVersion = 6.3.2;
 						DevelopmentTeam = H57R34WPZ6;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					404F4A511B28FE4E0072783C = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -488,6 +497,7 @@
 					"$(PROJECT_DIR)/Frameworks",
 					"$(PROJECT_DIR)/build/Release-iphoneos/Pods-KuduTour",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/Pods-KuduTour",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = KuduTour/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -510,6 +520,7 @@
 					"$(PROJECT_DIR)/Frameworks",
 					"$(PROJECT_DIR)/build/Release-iphoneos/Pods-KuduTour",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/Pods-KuduTour",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = KuduTour/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
