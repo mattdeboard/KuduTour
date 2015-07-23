@@ -5,9 +5,6 @@
       location = "container:KuduTour.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:KuduTour.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
 </Workspace>

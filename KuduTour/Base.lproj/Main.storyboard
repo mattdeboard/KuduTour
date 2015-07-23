@@ -55,6 +55,48 @@
             </objects>
             <point key="canvasLocation" x="1061" y="1310"/>
         </scene>
+        <!--Geo Coordinate View Controller-->
+        <scene sceneID="ml7-vc-UN5">
+            <objects>
+                <viewController id="Eq7-Vk-XdA" customClass="KTGeoCoordinateViewController" customModule="KuduTour" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vhw-Og-RMj"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ftf-8w-xC4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ptf-J6-cab">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="markerTitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zLe-Et-Bvo">
+                                <rect key="frame" x="257" y="28" width="86" height="21"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES" updatesFrequently="YES"/>
+                                </accessibility>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="markerDistance" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Iw-9w-GK2">
+                                <rect key="frame" x="240" y="99" width="121" height="21"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES" updatesFrequently="YES"/>
+                                </accessibility>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="markerDistance" destination="8Iw-9w-GK2" id="18E-av-9bQ"/>
+                        <outlet property="markerTitle" destination="zLe-Et-Bvo" id="w0p-mn-uAh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WZz-PK-YkR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1061" y="2002"/>
+        </scene>
         <!--Create Point of Interest-->
         <scene sceneID="wyw-eu-hUz">
             <objects>

@@ -10,6 +10,8 @@
 		20F71E317F645F8F61DB88D2 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C792C3AC5445E7494392A34C /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		401666281B54851600A5F545 /* KTFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401666271B54851600A5F545 /* KTFormViewController.swift */; };
 		401B3E6A1B32208F00A4B11F /* SecretStuff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401B3E691B32208F00A4B11F /* SecretStuff.swift */; };
+		402D03E81B5ED94200837268 /* ARGeoCoordinateDelegateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402D03E71B5ED94200837268 /* ARGeoCoordinateDelegateProtocol.swift */; };
+		402D03EA1B5EE4CB00837268 /* KTGeoCoordinateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402D03E91B5EE4CB00837268 /* KTGeoCoordinateViewController.swift */; };
 		4044F3681B55AA2C00937900 /* ARKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4044F3671B55AA2C00937900 /* ARKit.swift */; };
 		4044F36A1B55ABE200937900 /* ARGeoCoordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4044F3691B55ABE200937900 /* ARGeoCoordinate.swift */; };
 		4044F36C1B55ABF900937900 /* ARCoordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4044F36B1B55ABF900937900 /* ARCoordinate.swift */; };
@@ -22,7 +24,6 @@
 		404F4A4A1B28FE4E0072783C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 404F4A491B28FE4E0072783C /* Images.xcassets */; };
 		404F4A4D1B28FE4E0072783C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 404F4A4B1B28FE4E0072783C /* LaunchScreen.xib */; };
 		404F4A591B28FE4E0072783C /* KuduTourTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404F4A581B28FE4E0072783C /* KuduTourTests.swift */; };
-		404F4A631B28FF5A0072783C /* WikitudeSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 404F4A621B28FF5A0072783C /* WikitudeSDK.framework */; };
 		404F4A6D1B28FF840072783C /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 404F4A651B28FF840072783C /* Accelerate.framework */; };
 		404F4A6E1B28FF840072783C /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 404F4A661B28FF840072783C /* AssetsLibrary.framework */; };
 		404F4A6F1B28FF840072783C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 404F4A671B28FF840072783C /* AVFoundation.framework */; };
@@ -62,6 +63,8 @@
 		1025F0C7762D94A37E67839C /* Pods_KuduTour.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KuduTour.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		401666271B54851600A5F545 /* KTFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTFormViewController.swift; sourceTree = "<group>"; };
 		401B3E691B32208F00A4B11F /* SecretStuff.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecretStuff.swift; sourceTree = "<group>"; };
+		402D03E71B5ED94200837268 /* ARGeoCoordinateDelegateProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARGeoCoordinateDelegateProtocol.swift; sourceTree = "<group>"; };
+		402D03E91B5EE4CB00837268 /* KTGeoCoordinateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTGeoCoordinateViewController.swift; sourceTree = "<group>"; };
 		4044F3671B55AA2C00937900 /* ARKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARKit.swift; sourceTree = "<group>"; };
 		4044F3691B55ABE200937900 /* ARGeoCoordinate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARGeoCoordinate.swift; sourceTree = "<group>"; };
 		4044F36B1B55ABF900937900 /* ARCoordinate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARCoordinate.swift; sourceTree = "<group>"; };
@@ -133,7 +136,6 @@
 				404F4A721B28FF840072783C /* CoreLocation.framework in Frameworks */,
 				404F4A731B28FF840072783C /* CoreMotion.framework in Frameworks */,
 				404F4A741B28FF840072783C /* CoreVideo.framework in Frameworks */,
-				404F4A631B28FF5A0072783C /* WikitudeSDK.framework in Frameworks */,
 				8B74C67E21F8D1B0144092A6 /* Pods_KuduTour.framework in Frameworks */,
 				20F71E317F645F8F61DB88D2 /* Pods.framework in Frameworks */,
 			);
@@ -154,6 +156,7 @@
 			children = (
 				40C63BF11B5045550091FF66 /* KTViewController.swift */,
 				401666271B54851600A5F545 /* KTFormViewController.swift */,
+				402D03E91B5EE4CB00837268 /* KTGeoCoordinateViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -166,6 +169,7 @@
 				4044F36B1B55ABF900937900 /* ARCoordinate.swift */,
 				4044F36D1B55B94300937900 /* ARManager.swift */,
 				4044F36F1B55BC7800937900 /* ARViewProtocol.swift */,
+				402D03E71B5ED94200837268 /* ARGeoCoordinateDelegateProtocol.swift */,
 			);
 			path = ARKit;
 			sourceTree = "<group>";
@@ -430,7 +434,9 @@
 				4044F36A1B55ABE200937900 /* ARGeoCoordinate.swift in Sources */,
 				404F4A431B28FE4E0072783C /* AppDelegate.swift in Sources */,
 				4044F3741B571A6B00937900 /* NetworkManager.swift in Sources */,
+				402D03E81B5ED94200837268 /* ARGeoCoordinateDelegateProtocol.swift in Sources */,
 				4044F3701B55BC7800937900 /* ARViewProtocol.swift in Sources */,
+				402D03EA1B5EE4CB00837268 /* KTGeoCoordinateViewController.swift in Sources */,
 				4044F36C1B55ABF900937900 /* ARCoordinate.swift in Sources */,
 				4044F3681B55AA2C00937900 /* ARKit.swift in Sources */,
 				4044F36E1B55B94300937900 /* ARManager.swift in Sources */,
