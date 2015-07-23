@@ -55,7 +55,7 @@ class KTPOIMarkerManager: NSObject {
   }
 
   func geoCoordFromMarker(marker: Marker) -> ARGeoCoordinate {
-    let loc = ARGeoCoordinate()
+    let loc = ARGeoCoordinate(view: KTGeoCoordinateViewController())
     loc.geoLocation = CLLocation(
       coordinate: CLLocationCoordinate2D(latitude: marker.latitude!, longitude: marker.longitude!),
       altitude: marker.altitude!,

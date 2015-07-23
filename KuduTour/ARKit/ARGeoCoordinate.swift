@@ -25,14 +25,23 @@ func angleFromCoordinate(first: CLLocationCoordinate2D, second: CLLocationCoordi
   return 0.0
 }
 
+private var titleContext = 0
+
 class ARGeoCoordinate: ARCoordinate {
   var distanceFromOrigin: CLLocationDistance?
   var geoLocation: CLLocation?
-  var displayView: UIView?
+  var markerView: ARGeoCoordinateViewProtocol?
+
+  convenience init(view: ARGeoCoordinateViewProtocol) {
+    self.init()
+    markerView = view
+  }
 
   func calibrateUsingOrigin(origin: CLLocation) {
     if let loc = geoLocation {
-      distanceFromOrigin = origin.distanceFromLocation(loc)
+      let dist = origin.distanceFromLocation(loc)
+      distanceFromOrigin = dist
+      markerView?.didUpdateDistanceFromOrigin(dist)
       radialDistance = sqrt(pow(origin.altitude - loc.altitude, 2)) + pow(distanceFromOrigin!, 2)
 
       var angle = sin(abs(origin.altitude - loc.altitude))
@@ -43,9 +52,13 @@ class ARGeoCoordinate: ARCoordinate {
 
       inclination = angle
       azimuth = angleFromCoordinate(origin.coordinate, loc.coordinate)
-      NSLog("Distance from %@ is %f, angle is %f, azimuth is %f", title!, distanceFromOrigin!, angle, azimuth!)
+      NSLog("Distance from %@ is %f, angle is %f, azimuth is %f", title, distanceFromOrigin!, angle, azimuth!)
     } else {
       return
     }
+  }
+
+  override func didSetTitle() {
+    markerView?.didUpdateTitle(self.title)
   }
 }

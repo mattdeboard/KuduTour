@@ -54,7 +54,10 @@ class KTFormViewController: FormViewController, CLLocationManagerDelegate {
     navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Submit", style: .Plain, target: self, action: "submit:")
     locationManager.delegate = self
     locationManager.requestWhenInUseAuthorization()
-    locationManager.startUpdatingLocation()
+
+    if networkAvailable() {
+      locationManager.startUpdatingLocation()
+    }
   }
 
   // MARK: CLLocationManagerDelegate methods
@@ -64,14 +67,35 @@ class KTFormViewController: FormViewController, CLLocationManagerDelegate {
   }
 
   func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+
+    if !networkAvailable() {
+      return
+    }
+    
     latitude = manager.location.coordinate.latitude
     longitude = manager.location.coordinate.longitude
     altitude = manager.location.altitude
   }
 
+  func clearForm() {
+    for section in form.sections {
+      for row in section.rows {
+        (row as FormRowDescriptor).value = ""
+      }
+    }
+  }
+
   // MARK: Actions
 
   func submit(_: UIBarButtonItem!) {
+    if !networkAvailable() {
+      let alert: UIAlertView = UIAlertView(title: "Whoops!",
+        message: "It looks like you're offline! Please make sure your device is connected to the internet and try again.",
+        delegate: nil, cancelButtonTitle: "OK")
+      alert.show()
+      return
+    }
+
     var message: [String: AnyObject] = [
       "geolocation": [
         "lat": "\(latitude!)",
@@ -79,7 +103,7 @@ class KTFormViewController: FormViewController, CLLocationManagerDelegate {
         "altitude": "\(altitude!)"
       ]
     ]
-    
+
     for (key, val) in self.form.formValues() {
       message[key as! String] = val
     }
@@ -87,10 +111,18 @@ class KTFormViewController: FormViewController, CLLocationManagerDelegate {
     netManager.POST(resourcePath(netManager, "markers/"),
       parameters: message,
       success: { (operation: AFHTTPRequestOperation!, responseObject: AnyObject!) in
+        self.clearForm()
         let alert: UIAlertView = UIAlertView(title: "POI Created!",
-          message: "Your Point of Interest marker was created successfully!", delegate: nil, cancelButtonTitle: "OK")
+          message: "Your Point of Interest marker was created successfully!",
+          delegate: nil, cancelButtonTitle: "OK")
+        alert.show()
       },
       failure: { (operation: AFHTTPRequestOperation!,error: NSError!) in
+        let errMsg = "Your marker was not created: \(error.localizedDescription)"
+        let alert: UIAlertView = UIAlertView(title: "Error!",
+          message: errMsg,
+          delegate: nil, cancelButtonTitle: "OK")
+        alert.show()
         println("Error: \(error.localizedDescription)")
       }
     )

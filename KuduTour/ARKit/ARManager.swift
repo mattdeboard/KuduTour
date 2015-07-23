@@ -49,13 +49,10 @@ class ARManager: NSObject, CLLocationManagerDelegate {
   var maxRotationAngle: Float64 = M_PI / 6.0
   var centerCoordinate = ARCoordinate()
   var centerLocation = CLLocation()
-  var displayView: UIView?
-  var auxViews: [UIView?]?
+
   var parentViewController: UIViewController?
   var captureSession = AVCaptureSession()
-  var previewLayer = AVCaptureVideoPreviewLayer()
   var delegate: ARDelegate?
-  var debugView = UILabel()
   var coordinates: [ARGeoCoordinate?] = []
   var captureDevice: AVCaptureDevice?
 
@@ -64,9 +61,14 @@ class ARManager: NSObject, CLLocationManagerDelegate {
   var locationManager = CLLocationManager()
   var markerManager = KTPOIMarkerManager()
 
-  var initialAttitude: CMAttitude?
+  // MARK: Subviews/Sublayers
+  var displayView: UIView?
+  var auxViews: [UIView?]?
+  var debugView = UILabel()
+  var previewLayer = AVCaptureVideoPreviewLayer()
 
   // MARK: Initialization
+  var initialAttitude: CMAttitude?
 
   convenience init(arView: UIView, parentVC: UIViewController, arDelegate: ARDelegate, auxViewArr: [UIView?] = []) {
     self.init()
@@ -83,8 +85,10 @@ class ARManager: NSObject, CLLocationManagerDelegate {
       name: markerManager.fetchNotification.name, object: nil)
     markerManager.fetchMarkers(delegate as! KTViewController)
 
-    startAVCaptureSession()
-    startLocationServices()
+    if networkAvailable() {
+      startAVCaptureSession()
+      startLocationServices()
+    }
     startMotionServices()
   }
 
@@ -102,17 +106,17 @@ class ARManager: NSObject, CLLocationManagerDelegate {
         self.initialAttitude = data.attitude
         return
       }
+      self.updateCenterCoordinate()
       // translate the attitude
       data.attitude.multiplyByInverseOfAttitude(self.initialAttitude)
 
       // calculate magnitude of the change from our initial attitude
       let magnitude = magnitudeFromAttitude(data.attitude) ?? 0
 
-      if magnitude >= 0.8 {
-        println("Initial Magnitude: \(magnitudeFromAttitude(self.initialAttitude!))")
-        println("Current Magnitude: \(magnitude)")
-        self.updateCenterCoordinate()
-      }
+//      if magnitude >= 0.8 {
+//        println("Initial Magnitude: \(magnitudeFromAttitude(self.initialAttitude!))")
+//        println("Current Magnitude: \(magnitude)")
+//      }
     }
   }
 
@@ -164,8 +168,8 @@ class ARManager: NSObject, CLLocationManagerDelegate {
         adjustment = 0
       }
       centerCoordinate.azimuth = latestHeading! - adjustment
-      updateLocations()
     }
+    updateLocations()
   }
 
   func findDeltaOfRadianCenter(centerAzimuth: Float64, pointAzimuth: Float64, isBetweenNorth: Bool) -> Azimuth {
@@ -195,6 +199,9 @@ class ARManager: NSObject, CLLocationManagerDelegate {
   }
 
   func shouldDisplayCoordinate(coordinate: ARCoordinate) -> Bool {
+    if centerCoordinate.azimuth == nil {
+      return false
+    }
     let currentAzimuth = centerCoordinate.azimuth!
     let pointAzimuth = coordinate.azimuth!
     let deltaAzimuth = findDeltaOfRadianCenter(currentAzimuth, pointAzimuth: pointAzimuth, isBetweenNorth: false)
@@ -207,39 +214,40 @@ class ARManager: NSObject, CLLocationManagerDelegate {
 
   func updateLocations() {
     for item in coordinates {
-      let markerView = item!.displayView!
-      if shouldDisplayCoordinate(item!) {
-        let loc = pointForCoordinate(item!)
-        var scaleFactor = SCALE_FACTOR
+      if let markerView = (item!.markerView as? UIViewController)?.view {
+        if shouldDisplayCoordinate(item!) {
+          let loc = pointForCoordinate(item!)
+          var scaleFactor = SCALE_FACTOR
 
-        if scaleViewsBasedOnDistance {
-          let rDist = item?.radialDistance
-          scaleFactor = scaleFactor - minScaleFactor * (rDist! / maxScaleDistance)
-        }
+          if scaleViewsBasedOnDistance {
+            let rDist = item?.radialDistance
+            scaleFactor = scaleFactor - minScaleFactor * (rDist! / maxScaleDistance)
+          }
 
-        let cgFloatScaleFactor = CGFloat(scaleFactor)
-        let width = markerView.bounds.size.width.native * scaleFactor
-        let height = markerView.bounds.size.height.native * scaleFactor
-        markerView.frame = CGRectMake(CGFloat(loc.x.native - width / 2.0), loc.y, CGFloat(width), CGFloat(height))
-        markerView.setNeedsDisplay()
+          let cgFloatScaleFactor = CGFloat(scaleFactor)
+          let width = markerView.bounds.size.width.native * scaleFactor
+          let height = markerView.bounds.size.height.native * scaleFactor
+          markerView.frame = CGRectMake(CGFloat(loc.x.native - width / 2.0), loc.y, CGFloat(width), CGFloat(height))
+          markerView.setNeedsDisplay()
 
-        var transform = CATransform3DIdentity
+          var transform = CATransform3DIdentity
 
-        if scaleViewsBasedOnDistance {
-          transform = CATransform3DScale(transform, cgFloatScaleFactor, cgFloatScaleFactor, cgFloatScaleFactor)
-        }
+          if scaleViewsBasedOnDistance {
+            transform = CATransform3DScale(transform, cgFloatScaleFactor, cgFloatScaleFactor, cgFloatScaleFactor)
+          }
 
-        if rotateViewsBasedOnPerspective {
-          transform.m34 = 1.0 / 300.0
-        }
+          if rotateViewsBasedOnPerspective {
+            transform.m34 = 1.0 / 300.0
+          }
 
-        markerView.layer.transform = transform
+          markerView.layer.transform = transform
 
-        if markerView.superview != nil {
-          displayView?.insertSubview(markerView, atIndex: 1)
-        }
-      } else if (markerView.superview != nil) {
+          if markerView.superview != nil {
+            displayView?.insertSubview(markerView, atIndex: 1)
+          }
+        } else if (markerView.superview != nil) {
           markerView.removeFromSuperview()
+        }
       }
     }
   }
@@ -273,6 +281,10 @@ class ARManager: NSObject, CLLocationManagerDelegate {
 
   func locationManagerShouldDisplayHeadingCalibration(manager: CLLocationManager!) -> Bool {
     return true
+  }
+
+  func locationManager(manager: CLLocationManager!, didUpdateHeading newHeading: CLHeading!) {
+    centerCoordinate.azimuth = manager.heading.magneticHeading
   }
 
   func locationManager(manager: CLLocationManager!, didUpdateToLocation newLocation: CLLocation!,

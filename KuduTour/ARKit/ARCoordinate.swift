@@ -20,7 +20,11 @@ class ARCoordinate {
   var radialDistance: Float64?
   var inclination: Float64?
   var azimuth: Float64?
-  var title: String?
+  var title: String = "" {
+    didSet {
+      self.didSetTitle()
+    }
+  }
   var subtitle: String?
 
   class func coordinateWithRadialDistance(newRadialDistance: Float64, newInclination: Float64,
@@ -34,7 +38,7 @@ class ARCoordinate {
   }
 
   func hash() -> Int {
-    return (title!.hash ^ subtitle!.hash) + (Int)(radialDistance! + inclination! + azimuth!)
+    return (title.hash ^ subtitle!.hash) + (Int)(radialDistance! + inclination! + azimuth!)
   }
 
   func isEqualToCoordinate(otherCoordinate: ARCoordinate) -> Bool {
@@ -48,6 +52,11 @@ class ARCoordinate {
   }
 
   func description() -> String {
-    return String(format: "%@ r: %.3fm φ: %.3f° θ: %.3f°", title!, radialDistance!, radiansToDegrees(azimuth!), radiansToDegrees(inclination!))
+    return String(format: "%@ r: %.3fm φ: %.3f° θ: %.3f°", title, radialDistance!, radiansToDegrees(azimuth!),
+      radiansToDegrees(inclination!))
+  }
+
+  func didSetTitle() {
+
   }
 }

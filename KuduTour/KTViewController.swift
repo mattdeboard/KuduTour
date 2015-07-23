@@ -36,7 +36,10 @@ class KTViewController: UIViewController, ARDelegate {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    arManager = ARManager(arView: view!, parentVC: self, arDelegate: self, auxViewArr: [someButton, buttonLabel])
+
+    if networkAvailable() {
+      arManager = ARManager(arView: view!, parentVC: self, arDelegate: self, auxViewArr: [someButton, buttonLabel])
+    }
   }
 
   override func viewWillTransitionToSize(size: CGSize,
@@ -46,13 +49,12 @@ class KTViewController: UIViewController, ARDelegate {
       // I'll have to rip out in six months.
       super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
       coordinator.animateAlongsideTransition({ (context) -> Void in
-        if (self.arManager!.previewLayer?.connection.supportsVideoOrientation)! {
-          self.arManager!.previewLayer?.frame = CGRectMake(0, 0, size.width, size.height)
-          self.arManager!.videoOrientation()
-        }
-        },
-        completion: { (context) -> Void in
-      })
+        if let mgr = self.arManager {
+          if (mgr.previewLayer?.connection.supportsVideoOrientation)! {
+            mgr.previewLayer?.frame = CGRectMake(0, 0, size.width, size.height)
+            mgr.videoOrientation()
+          }
+        }}) { (context) in }
   }
   // MARK: Touch handlers
 

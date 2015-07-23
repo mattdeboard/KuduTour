@@ -10,7 +10,7 @@ import Foundation
 
 func networkManager() -> AFHTTPRequestOperationManager {
   let mgr = AFHTTPRequestOperationManager(
-    baseURL: NSURL(string: "http://c1ef5ec1.ngrok.io")?.URLByAppendingPathComponent("/api/v1"))
+    baseURL: NSURL(string: "https://758375ee.ngrok.io")?.URLByAppendingPathComponent("/api/v1"))
   mgr.requestSerializer = AFJSONRequestSerializer()
   mgr.requestSerializer.setValue("Token \(API_TOKEN)", forHTTPHeaderField: "Authorization")
   return mgr
@@ -18,4 +18,9 @@ func networkManager() -> AFHTTPRequestOperationManager {
 
 func resourcePath(mgr: AFHTTPRequestOperationManager, path: String) -> String {
   return NSURL(string: path, relativeToURL: mgr.baseURL!)!.absoluteString!
+}
+
+func networkAvailable() -> Bool {
+  let checker = AFNetworkReachabilityManager()
+  return checker.reachable
 }
