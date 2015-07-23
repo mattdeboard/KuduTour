@@ -8,6 +8,8 @@
 import AFNetworking
 import Foundation
 
+let ReachabilityManager = AFNetworkReachabilityManager()
+
 func networkManager() -> AFHTTPRequestOperationManager {
   let mgr = AFHTTPRequestOperationManager(
     baseURL: NSURL(string: "https://758375ee.ngrok.io")?.URLByAppendingPathComponent("/api/v1"))
@@ -21,6 +23,5 @@ func resourcePath(mgr: AFHTTPRequestOperationManager, path: String) -> String {
 }
 
 func networkAvailable() -> Bool {
-  let checker = AFNetworkReachabilityManager()
-  return checker.reachable
+  return ReachabilityManager.reachable
 }

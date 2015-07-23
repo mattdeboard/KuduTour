@@ -32,6 +32,9 @@ func magnitudeFromAttitude(attitude: CMAttitude) -> Double {
   return sqrt(pow(attitude.roll, 2) + pow(attitude.yaw, 2) + pow(attitude.pitch, 2))
 }
 
+var COORDINATES: CLLocationCoordinate2D? = nil
+var ALTITUDE: CLLocationDistance? = nil
+
 class ARManager: NSObject, CLLocationManagerDelegate {
   // MARK: Private properties
   private var latestHeading: Float64?
@@ -84,11 +87,8 @@ class ARManager: NSObject, CLLocationManagerDelegate {
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateCoordinates",
       name: markerManager.fetchNotification.name, object: nil)
     markerManager.fetchMarkers(delegate as! KTViewController)
-
-    if networkAvailable() {
-      startAVCaptureSession()
-      startLocationServices()
-    }
+    startAVCaptureSession()
+    startLocationServices()
     startMotionServices()
   }
 
@@ -126,11 +126,13 @@ class ARManager: NSObject, CLLocationManagerDelegate {
     locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
     locationManager.delegate = self
     locationManager.requestWhenInUseAuthorization()
-    locationManager.startUpdatingLocation()
-    locationManager.startUpdatingHeading()
-    centerLocation = CLLocation(latitude: locationManager.location.coordinate.latitude,
-      longitude: locationManager.location.coordinate.longitude)
 
+    if networkAvailable() {
+      locationManager.startUpdatingLocation()
+      locationManager.startUpdatingHeading()
+      centerLocation = CLLocation(latitude: locationManager.location.coordinate.latitude,
+        longitude: locationManager.location.coordinate.longitude)
+    }
   }
 
   func startAVCaptureSession() {
@@ -285,6 +287,8 @@ class ARManager: NSObject, CLLocationManagerDelegate {
 
   func locationManager(manager: CLLocationManager!, didUpdateHeading newHeading: CLHeading!) {
     centerCoordinate.azimuth = manager.heading.magneticHeading
+    COORDINATES = manager.location.coordinate
+    ALTITUDE = manager.location.altitude
   }
 
   func locationManager(manager: CLLocationManager!, didUpdateToLocation newLocation: CLLocation!,

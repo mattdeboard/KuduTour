@@ -36,10 +36,7 @@ class KTViewController: UIViewController, ARDelegate {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-
-    if networkAvailable() {
-      arManager = ARManager(arView: view!, parentVC: self, arDelegate: self, auxViewArr: [someButton, buttonLabel])
-    }
+    arManager = ARManager(arView: view!, parentVC: self, arDelegate: self, auxViewArr: [someButton, buttonLabel])
   }
 
   override func viewWillTransitionToSize(size: CGSize,
@@ -69,7 +66,6 @@ class KTViewController: UIViewController, ARDelegate {
     var touchPercent = anyTouch.locationInView(self.view).x / screenWidth
     focusTo(Float(touchPercent))
   }
-
 
   func focusTo(value : Float) {
     if let device = captureDevice {

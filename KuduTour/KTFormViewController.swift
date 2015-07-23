@@ -14,10 +14,25 @@ class KTFormViewController: FormViewController, CLLocationManagerDelegate {
   var formDescriptor: FormDescriptor?
   var locationManager = CLLocationManager()
   var netManager = networkManager()
+  var arManager: ARManager?
 
-  private var latitude: CLLocationDegrees?
-  private var longitude: CLLocationDegrees?
-  private var altitude: CLLocationDegrees?
+  private var latitude: CLLocationDegrees? {
+    if let coord = COORDINATES {
+      return coord.latitude
+    }
+    return nil
+  }
+
+  private var longitude: CLLocationDegrees? {
+    if let coord = COORDINATES {
+      return coord.longitude
+    }
+    return nil
+  }
+
+  private var altitude: CLLocationDegrees? {
+    return ALTITUDE
+  }
 
   required init(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
@@ -52,29 +67,6 @@ class KTFormViewController: FormViewController, CLLocationManagerDelegate {
   override func viewDidLoad() {
     super.viewDidLoad()
     navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Submit", style: .Plain, target: self, action: "submit:")
-    locationManager.delegate = self
-    locationManager.requestWhenInUseAuthorization()
-
-    if networkAvailable() {
-      locationManager.startUpdatingLocation()
-    }
-  }
-
-  // MARK: CLLocationManagerDelegate methods
-
-  func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
-    println("Error while updating location " + error.localizedDescription)
-  }
-
-  func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-
-    if !networkAvailable() {
-      return
-    }
-    
-    latitude = manager.location.coordinate.latitude
-    longitude = manager.location.coordinate.longitude
-    altitude = manager.location.altitude
   }
 
   func clearForm() {
@@ -104,7 +96,7 @@ class KTFormViewController: FormViewController, CLLocationManagerDelegate {
       ]
     ]
 
-    for (key, val) in self.form.formValues() {
+    for (key, val) in form.formValues() {
       message[key as! String] = val
     }
 
@@ -123,7 +115,6 @@ class KTFormViewController: FormViewController, CLLocationManagerDelegate {
           message: errMsg,
           delegate: nil, cancelButtonTitle: "OK")
         alert.show()
-        println("Error: \(error.localizedDescription)")
       }
     )
   }
