@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		40104D391B6077490089C2FF /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40104D381B6077490089C2FF /* AFNetworking.framework */; };
+		40104D3B1B6077580089C2FF /* SwiftForms.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40104D3A1B6077580089C2FF /* SwiftForms.framework */; };
+		40104D3D1B6077630089C2FF /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40104D3C1B6077630089C2FF /* SwiftyJSON.framework */; };
 		401666281B54851600A5F545 /* KTFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401666271B54851600A5F545 /* KTFormViewController.swift */; };
 		401B3E6A1B32208F00A4B11F /* SecretStuff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401B3E691B32208F00A4B11F /* SecretStuff.swift */; };
 		402D03E81B5ED94200837268 /* ARGeoCoordinateDelegateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402D03E71B5ED94200837268 /* ARGeoCoordinateDelegateProtocol.swift */; };
@@ -37,6 +40,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		40104D381B6077490089C2FF /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = "Pods/../build/Debug-iphoneos/Pods-KuduTour/AFNetworking.framework"; sourceTree = "<group>"; };
+		40104D3A1B6077580089C2FF /* SwiftForms.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftForms.framework; path = "Pods/../build/Debug-iphoneos/Pods-KuduTour/SwiftForms.framework"; sourceTree = "<group>"; };
+		40104D3C1B6077630089C2FF /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "Pods/../build/Debug-iphoneos/Pods-KuduTour/SwiftyJSON.framework"; sourceTree = "<group>"; };
 		401666271B54851600A5F545 /* KTFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTFormViewController.swift; sourceTree = "<group>"; };
 		401B3E691B32208F00A4B11F /* SecretStuff.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecretStuff.swift; sourceTree = "<group>"; };
 		402D03E71B5ED94200837268 /* ARGeoCoordinateDelegateProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARGeoCoordinateDelegateProtocol.swift; sourceTree = "<group>"; };
@@ -68,6 +74,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40104D3D1B6077630089C2FF /* SwiftyJSON.framework in Frameworks */,
+				40104D3B1B6077580089C2FF /* SwiftForms.framework in Frameworks */,
+				40104D391B6077490089C2FF /* AFNetworking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,6 +116,9 @@
 		404F4A341B28FE4E0072783C = {
 			isa = PBXGroup;
 			children = (
+				40104D3C1B6077630089C2FF /* SwiftyJSON.framework */,
+				40104D3A1B6077580089C2FF /* SwiftForms.framework */,
+				40104D381B6077490089C2FF /* AFNetworking.framework */,
 				404F4A3F1B28FE4E0072783C /* KuduTour */,
 				404F4A551B28FE4E0072783C /* KuduTourTests */,
 				404F4A3E1B28FE4E0072783C /* Products */,
