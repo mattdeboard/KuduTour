@@ -35,7 +35,7 @@ class KTPOIMarkerManager: NSObject {
       },
       failure: { (operation: AFHTTPRequestOperation!, error: NSError!) in
         let alert: UIAlertView = UIAlertView(title: "Server Unreachable",
-          message: "KuduTour could not reach the server. Check network connectivity and try again.",
+          message: "KuduTour could not reach the server. Please try again later.",
           delegate: nil, cancelButtonTitle: "OK")
         alert.show()
       }
