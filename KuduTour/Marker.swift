@@ -14,6 +14,6 @@ class Marker: NSManagedObject {
   @NSManaged var desc: String
   @NSManaged var title: String
   @NSManaged var geolocation: GeoLocation
-  @NSManaged var markerID: String
+  @NSManaged var id: NSNumber
 
 }

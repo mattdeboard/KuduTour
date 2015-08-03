@@ -14,6 +14,6 @@ class GeoLocation: NSManagedObject {
   @NSManaged var altitude: NSNumber
   @NSManaged var latitude: NSNumber
   @NSManaged var longitude: NSNumber
-  @NSManaged var geolocationID: String
+  @NSManaged var id: NSNumber
 
 }

@@ -8,6 +8,10 @@
 import CoreData
 import UIKit
 
+func appDelegate() -> AppDelegate {
+  return UIApplication.sharedApplication().delegate as! AppDelegate
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 

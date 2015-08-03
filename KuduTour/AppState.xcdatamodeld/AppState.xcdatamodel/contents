@@ -2,18 +2,18 @@
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14E46" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="GeoLocation" representedClassName="PRODUCT_MODULE_NAME.GeoLocation" syncable="YES">
         <attribute name="altitude" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="geolocationID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="latitude" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
     </entity>
     <entity name="Marker" representedClassName="KuduTour.Marker" syncable="YES">
         <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="markerID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="geolocation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GeoLocation" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Marker" positionX="-63" positionY="-18" width="128" height="105"/>
         <element name="GeoLocation" positionX="-63" positionY="18" width="128" height="105"/>
+        <element name="Marker" positionX="-63" positionY="-18" width="128" height="105"/>
     </elements>
 </model>
