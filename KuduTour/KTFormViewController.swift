@@ -80,13 +80,6 @@ class KTFormViewController: FormViewController, CLLocationManagerDelegate {
   // MARK: Actions
 
   func submit(_: UIBarButtonItem!) {
-    if !networkAvailable() {
-      let alert: UIAlertView = UIAlertView(title: "Whoops!",
-        message: "It looks like you're offline! Please make sure your device is connected to the internet and try again.",
-        delegate: nil, cancelButtonTitle: "OK")
-      alert.show()
-      return
-    }
 
     var message: [String: AnyObject] = [
       "geolocation": [

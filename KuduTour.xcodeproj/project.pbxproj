@@ -20,7 +20,6 @@
 		4044F36E1B55B94300937900 /* ARManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4044F36D1B55B94300937900 /* ARManager.swift */; };
 		4044F3701B55BC7800937900 /* ARViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4044F36F1B55BC7800937900 /* ARViewProtocol.swift */; };
 		4044F3721B5717F000937900 /* KTPOIMarkerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4044F3711B5717F000937900 /* KTPOIMarkerManager.swift */; };
-		4044F3741B571A6B00937900 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4044F3731B571A6B00937900 /* NetworkManager.swift */; };
 		404DFAD61B659F9700EE482F /* GeoLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404DFAD51B659F9700EE482F /* GeoLocation.swift */; };
 		404DFAD81B659F9800EE482F /* Marker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404DFAD71B659F9800EE482F /* Marker.swift */; };
 		404F4A431B28FE4E0072783C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404F4A421B28FE4E0072783C /* AppDelegate.swift */; };
@@ -31,6 +30,7 @@
 		408D93DD1B608D0200A8E4E0 /* AppState.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 408D93DB1B608D0200A8E4E0 /* AppState.xcdatamodeld */; };
 		40C63BF21B5045550091FF66 /* KTViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C63BF11B5045550091FF66 /* KTViewController.swift */; };
 		40C8F1E91B60785A0026A221 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40C8F1E81B60785A0026A221 /* MapKit.framework */; };
+		40DC16291B7001B300ABCDC3 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DC16281B7001B300ABCDC3 /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,7 +57,6 @@
 		4044F36D1B55B94300937900 /* ARManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARManager.swift; sourceTree = "<group>"; };
 		4044F36F1B55BC7800937900 /* ARViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARViewProtocol.swift; sourceTree = "<group>"; };
 		4044F3711B5717F000937900 /* KTPOIMarkerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KTPOIMarkerManager.swift; path = ARKit/KTPOIMarkerManager.swift; sourceTree = "<group>"; };
-		4044F3731B571A6B00937900 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		404DFAD51B659F9700EE482F /* GeoLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoLocation.swift; sourceTree = "<group>"; };
 		404DFAD71B659F9800EE482F /* Marker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Marker.swift; sourceTree = "<group>"; };
 		404F4A3D1B28FE4E0072783C /* KuduTour.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KuduTour.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,6 +72,7 @@
 		408D93DC1B608D0200A8E4E0 /* AppState.xcdatamodel */ = {isa = PBXFileReference; explicitFileType = wrapper.xcdatamodel; path = AppState.xcdatamodel; sourceTree = "<group>"; };
 		40C63BF11B5045550091FF66 /* KTViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTViewController.swift; sourceTree = "<group>"; };
 		40C8F1E81B60785A0026A221 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		40DC16281B7001B300ABCDC3 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		5A4F6671721DFDC4210CF2A8 /* Pods-KuduTour.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KuduTour.release.xcconfig"; path = "Pods/Target Support Files/Pods-KuduTour/Pods-KuduTour.release.xcconfig"; sourceTree = "<group>"; };
 		A97455721A1F470804CF978D /* Pods-KuduTour.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KuduTour.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KuduTour/Pods-KuduTour.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -148,6 +148,7 @@
 		404F4A3F1B28FE4E0072783C /* KuduTour */ = {
 			isa = PBXGroup;
 			children = (
+				40DC16281B7001B300ABCDC3 /* NetworkManager.swift */,
 				4044F3711B5717F000937900 /* KTPOIMarkerManager.swift */,
 				4044F3551B55A89C00937900 /* ARKit */,
 				404F4A421B28FE4E0072783C /* AppDelegate.swift */,
@@ -158,7 +159,6 @@
 				401B3E691B32208F00A4B11F /* SecretStuff.swift */,
 				401666291B54AC0900A5F545 /* Controllers */,
 				40702BC61B5598D4000D47BB /* BridgingHeader.h */,
-				4044F3731B571A6B00937900 /* NetworkManager.swift */,
 				408D93E01B608EAB00A8E4E0 /* Models */,
 			);
 			path = KuduTour;
@@ -369,7 +369,7 @@
 				401666281B54851600A5F545 /* KTFormViewController.swift in Sources */,
 				4044F36A1B55ABE200937900 /* ARGeoCoordinate.swift in Sources */,
 				404F4A431B28FE4E0072783C /* AppDelegate.swift in Sources */,
-				4044F3741B571A6B00937900 /* NetworkManager.swift in Sources */,
+				40DC16291B7001B300ABCDC3 /* NetworkManager.swift in Sources */,
 				402D03E81B5ED94200837268 /* ARGeoCoordinateDelegateProtocol.swift in Sources */,
 				4044F3701B55BC7800937900 /* ARViewProtocol.swift in Sources */,
 				402D03EA1B5EE4CB00837268 /* KTGeoCoordinateViewController.swift in Sources */,

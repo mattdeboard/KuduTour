@@ -88,7 +88,6 @@ class ARManager: NSObject, CLLocationManagerDelegate {
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateCoordinates",
       name: markerManager.fetchNotification.name, object: nil)
     markerManager.fetchMarkers(delegate as! KTViewController)
-    NSNotificationCenter.defaultCenter().addObserver(self, selector: "startLocationServices", name: AFNetworkingReachabilityDidChangeNotification, object: nil)
     startAVCaptureSession()
     startLocationServices()
     startMotionServices()
@@ -131,10 +130,6 @@ class ARManager: NSObject, CLLocationManagerDelegate {
 
     locationManager.startUpdatingLocation()
     locationManager.startUpdatingHeading()
-
-    if let heading = locationManager.heading {
-      centerCoordinate.azimuth = heading.magneticHeading
-    }
 
     centerLocation = CLLocation(latitude: locationManager.location.coordinate.latitude,
       longitude: locationManager.location.coordinate.longitude)

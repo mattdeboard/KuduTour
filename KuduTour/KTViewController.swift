@@ -36,12 +36,22 @@ class KTViewController: UIViewController, ARDelegate {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    NSNotificationCenter.defaultCenter().addObserver(self, selector: "initARManager",
-      name: AFNetworkingReachabilityDidChangeNotification, object: nil)
-  }
+    AFNetworkReachabilityManager.sharedManager().startMonitoring()
+    AFNetworkReachabilityManager.sharedManager().setReachabilityStatusChangeBlock {
+      (status: AFNetworkReachabilityStatus) in
 
-  func initARManager() {
-    arManager = ARManager(arView: view!, parentVC: self, arDelegate: self, auxViewArr: [someButton, buttonLabel])
+      switch status {
+      case AFNetworkReachabilityStatus.Unknown,
+      AFNetworkReachabilityStatus.ReachableViaWWAN,
+      AFNetworkReachabilityStatus.ReachableViaWiFi:
+        self.arManager = ARManager(arView: self.view!, parentVC: self, arDelegate: self,
+          auxViewArr: [self.someButton, self.buttonLabel])
+        break;
+      default:
+        break;
+      }
+    }
+
   }
 
   override func viewWillTransitionToSize(size: CGSize,
