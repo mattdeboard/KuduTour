@@ -5,6 +5,7 @@
 //  Created by Matt DeBoard on 7/14/15.
 //  Copyright (c) 2015 Matt DeBoard. All rights reserved.
 //
+import AFNetworking
 import AVFoundation
 import CoreLocation
 import CoreMotion
@@ -87,6 +88,7 @@ class ARManager: NSObject, CLLocationManagerDelegate {
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateCoordinates",
       name: markerManager.fetchNotification.name, object: nil)
     markerManager.fetchMarkers(delegate as! KTViewController)
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: "startLocationServices", name: AFNetworkingReachabilityDidChangeNotification, object: nil)
     startAVCaptureSession()
     startLocationServices()
     startMotionServices()
@@ -127,12 +129,15 @@ class ARManager: NSObject, CLLocationManagerDelegate {
     locationManager.delegate = self
     locationManager.requestWhenInUseAuthorization()
 
-    if networkAvailable() {
-      locationManager.startUpdatingLocation()
-      locationManager.startUpdatingHeading()
-      centerLocation = CLLocation(latitude: locationManager.location.coordinate.latitude,
-        longitude: locationManager.location.coordinate.longitude)
+    locationManager.startUpdatingLocation()
+    locationManager.startUpdatingHeading()
+
+    if let heading = locationManager.heading {
+      centerCoordinate.azimuth = heading.magneticHeading
     }
+
+    centerLocation = CLLocation(latitude: locationManager.location.coordinate.latitude,
+      longitude: locationManager.location.coordinate.longitude)
   }
 
   func startAVCaptureSession() {
@@ -204,14 +209,19 @@ class ARManager: NSObject, CLLocationManagerDelegate {
     if centerCoordinate.azimuth == nil {
       return false
     }
-    let currentAzimuth = centerCoordinate.azimuth!
-    let pointAzimuth = coordinate.azimuth!
-    let deltaAzimuth = findDeltaOfRadianCenter(currentAzimuth, pointAzimuth: pointAzimuth, isBetweenNorth: false)
 
-    if deltaAzimuth.azimuth <= degreesToRadians(pointAzimuth) {
-      return true
+    let currentAzimuth = centerCoordinate.azimuth!
+
+    if let pointAzimuth = coordinate.azimuth {
+      let deltaAzimuth = findDeltaOfRadianCenter(currentAzimuth, pointAzimuth: pointAzimuth, isBetweenNorth: false)
+
+      if deltaAzimuth.azimuth <= degreesToRadians(pointAzimuth) {
+        return true
+      }
+      return deltaAzimuth.isBetweenNorth
+    } else {
+      return false
     }
-    return deltaAzimuth.isBetweenNorth
   }
 
   func updateLocations() {

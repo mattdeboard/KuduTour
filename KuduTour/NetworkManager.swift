@@ -8,7 +8,7 @@
 import AFNetworking
 import Foundation
 
-let ReachabilityManager = AFNetworkReachabilityManager()
+let reacher = ReachabilityManager()
 
 func networkManager() -> AFHTTPRequestOperationManager {
   let mgr = AFHTTPRequestOperationManager(
@@ -23,5 +23,41 @@ func resourcePath(mgr: AFHTTPRequestOperationManager, path: String) -> String {
 }
 
 func networkAvailable() -> Bool {
-  return ReachabilityManager.reachable
+  let avail = reacher.networkAvailable()
+  println(avail)
+  return avail
+}
+
+class ReachabilityManager: NSObject {
+  private var reachable: Bool = false
+
+  override init() {
+    super.init()
+    AFNetworkReachabilityManager.sharedManager().startMonitoring()
+    AFNetworkReachabilityManager.sharedManager().setReachabilityStatusChangeBlock {
+      (status: AFNetworkReachabilityStatus) in
+
+      switch status {
+      case AFNetworkReachabilityStatus.Unknown,
+      AFNetworkReachabilityStatus.ReachableViaWWAN,
+      AFNetworkReachabilityStatus.ReachableViaWiFi:
+        self.reachable = true
+        NSNotificationCenter.defaultCenter().postNotificationName("networkAvailable", object: nil)
+        break;
+      case AFNetworkReachabilityStatus.NotReachable:
+        self.reachable = false
+        break;
+      default:
+        break;
+      }
+    }
+  }
+
+  func networkAvailable() -> Bool {
+    return reachable
+  }
+
+  deinit {
+    AFNetworkReachabilityManager.sharedManager().stopMonitoring()
+  }
 }

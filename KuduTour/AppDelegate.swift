@@ -16,7 +16,9 @@ func appDelegate() -> AppDelegate {
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
-
+  var GlobalBackgroundQueue: dispatch_queue_t {
+    return dispatch_get_global_queue(Int(QOS_CLASS_BACKGROUND.value), 0)
+  }
   // MARK: CoreData stack
 
   lazy var applicationDocumentsDirectory: NSURL = {

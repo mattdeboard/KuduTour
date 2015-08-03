@@ -5,7 +5,7 @@
 //  Created by Matt DeBoard on 7/10/15.
 //  Copyright (c) 2015 Matt DeBoard. All rights reserved.
 //
-
+import AFNetworking
 import AVFoundation
 import CoreLocation
 import UIKit
@@ -36,6 +36,11 @@ class KTViewController: UIViewController, ARDelegate {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: "initARManager",
+      name: AFNetworkingReachabilityDidChangeNotification, object: nil)
+  }
+
+  func initARManager() {
     arManager = ARManager(arView: view!, parentVC: self, arDelegate: self, auxViewArr: [someButton, buttonLabel])
   }
 
