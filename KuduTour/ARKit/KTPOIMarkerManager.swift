@@ -12,49 +12,35 @@ import Foundation
 import SwiftyJSON
 import UIKit
 
-//class Marker: NSObject {
-//  var latitude: CLLocationDegrees?
-//  var longitude: CLLocationDegrees?
-//  var altitude: CLLocationDistance?
-//  var title: String?
-//  var subtitle: String?
-//
-//  convenience init(data: JSON) {
-//    self.init()
-//    let geoloc: JSON = data["geolocation"]
-//    latitude = CLLocationDegrees(geoloc["lat"].numberValue)
-//    longitude = CLLocationDegrees(geoloc["lon"].numberValue)
-//    altitude = data["altitude"].numberValue as CLLocationDistance
-//    title = data["title"].stringValue
-//    subtitle = data["description"].stringValue
-//  }
-//}
-
 class KTPOIMarkerManager: NSObject {
   var netManager = networkManager()
   var fetchNotification = NSNotification(name: "markerFetchComplete", object: nil)
   var markers: [ARGeoCoordinate?] = []
 
-  func fetchmarkers(vc: UIViewController, url: String) {
+  func fetchMarkers(vc: UIViewController, url: String) {
     netManager.GET(url,
       parameters: nil,
       success: { (operation: AFHTTPRequestOperation!, responseObject: AnyObject!) in
         let json = JSON(responseObject)
+        let app = appDelegate()
 
-        for (index: String, subJson: JSON) in json["results"] {
-          let myMarker = Marker()
-          let myGeoLoc = GeoLocation()
-          myMarker.desc = subJson["description"].stringValue
-          myMarker.title = subJson["title"].stringValue
-          myGeoLoc.altitude = subJson["geolocation"]
-          self.markers.append(self.geoCoordFromMarker(Marker(data: subJson)))
+        if let moContext = app.managedObjectContext {
+          for (index: String, subJson: JSON) in json["results"] {
+            if let myMarker = self.createOrUpdateMarkerEntity(subJson, moContext: moContext) {
+              self.markers.append(self.geoCoordFromMarker(myMarker))
+            }
+          }
+          NSNotificationCenter.defaultCenter().postNotification(self.fetchNotification)
         }
-        NSNotificationCenter.defaultCenter().postNotification(self.fetchNotification)
       },
       failure: { (operation: AFHTTPRequestOperation!,error: NSError!) in
         println("Error: \(error.localizedDescription)")
       }
     )
+  }
+
+  func fetchMarkers(vc: UIViewController) {
+    return fetchMarkers(vc, url: resourcePath(netManager, "markers/?page=2"))
   }
 
   func createOrUpdateMarkerEntity(data: JSON, moContext: NSManagedObjectContext) -> Marker? {
@@ -109,20 +95,16 @@ class KTPOIMarkerManager: NSObject {
     return localEntity
   }
 
-  func fetchMarkers(vc: UIViewController) {
-    return fetchmarkers(vc, url: resourcePath(netManager, "markers/?page=2"))
-  }
-
   func geoCoordFromMarker(marker: Marker) -> ARGeoCoordinate {
     let loc = ARGeoCoordinate(view: KTGeoCoordinateViewController())
     loc.geoLocation = CLLocation(
-      coordinate: CLLocationCoordinate2D(latitude: marker.geolocation.latitude,
-        longitude: marker.geolocation.longitude), altitude: marker.geolocation.altitude,
+      coordinate: CLLocationCoordinate2D(
+        latitude: CLLocationDegrees(marker.geolocation.latitude),
+        longitude: CLLocationDegrees(marker.geolocation.longitude)),
+      altitude: CLLocationDistance(marker.geolocation.altitude),
       horizontalAccuracy: CLLocationAccuracy(),
       verticalAccuracy: CLLocationAccuracy(),
-      timestamp: nil
-    )
-
+      timestamp: nil)
     loc.title = marker.title
     loc.subtitle = marker.desc
     return loc
