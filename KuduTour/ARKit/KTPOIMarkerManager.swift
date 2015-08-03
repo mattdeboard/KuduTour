@@ -22,9 +22,8 @@ class KTPOIMarkerManager: NSObject {
       parameters: nil,
       success: { (operation: AFHTTPRequestOperation!, responseObject: AnyObject!) in
         let json = JSON(responseObject)
-        let app = appDelegate()
 
-        if let moContext = app.managedObjectContext {
+        if let moContext = appDelegate().managedObjectContext {
           for (index: String, subJson: JSON) in json["results"] {
             if let myMarker = self.createOrUpdateMarkerEntity(subJson, moContext: moContext) {
               self.markers.append(self.geoCoordFromMarker(myMarker))

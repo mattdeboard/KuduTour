@@ -9,6 +9,7 @@
 import Foundation
 import CoreData
 
+@objc(Marker)
 class Marker: NSManagedObject {
 
   @NSManaged var desc: String

@@ -9,6 +9,7 @@
 import Foundation
 import CoreData
 
+@objc(GeoLocation)
 class GeoLocation: NSManagedObject {
 
   @NSManaged var altitude: NSNumber

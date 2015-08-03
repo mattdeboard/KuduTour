@@ -12,7 +12,7 @@ let ReachabilityManager = AFNetworkReachabilityManager()
 
 func networkManager() -> AFHTTPRequestOperationManager {
   let mgr = AFHTTPRequestOperationManager(
-    baseURL: NSURL(string: "https://758375ee.ngrok.io")?.URLByAppendingPathComponent("/api/v1"))
+    baseURL: NSURL(string: "https://eb31ba9f.ngrok.io")?.URLByAppendingPathComponent("/api/v1"))
   mgr.requestSerializer = AFJSONRequestSerializer()
   mgr.requestSerializer.setValue("Token \(API_TOKEN)", forHTTPHeaderField: "Authorization")
   return mgr
