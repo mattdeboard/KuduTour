@@ -37,6 +37,9 @@ class KTViewController: UIViewController, ARDelegate {
   override func viewDidLoad() {
     super.viewDidLoad()
     AFNetworkReachabilityManager.sharedManager().startMonitoring()
+
+    // We want to hold off initializing the ARManager until there is a network available. Since this is obviously
+    // so location-oriented there is no point in initializing until we can get our location.
     AFNetworkReachabilityManager.sharedManager().setReachabilityStatusChangeBlock {
       (status: AFNetworkReachabilityStatus) in
 
